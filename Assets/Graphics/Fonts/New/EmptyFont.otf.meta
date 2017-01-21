@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 3b0a5d2d3e5f15f4f8270d647852ce39
+timeCreated: 1484333854
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: EmptyFont
+  fontNames:
+  - EmptyFont
+  - Digital-7-Numbers
+  - BebasNeueNoNumbers
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 61132caa9683c084a86ff1f109cfc816, type: 3}
+  - {fileID: 12800000, guid: b378953b88e47de46b37e4ba9d76c5f5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

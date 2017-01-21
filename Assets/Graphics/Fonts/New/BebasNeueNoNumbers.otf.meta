@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 61132caa9683c084a86ff1f109cfc816
+timeCreated: 1484333764
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BebasNeueNoNumbers
+  fontNames:
+  - BebasNeueNoNumbers
+  - Digital-7-Numbers
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

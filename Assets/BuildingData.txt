@@ -1,0 +1,4 @@
+buildingGen.sideUVOffsetPerUnit=new Vector2(0.6f,0.4f);
+buildingGen.roofUVOffsetPerUnit=Vector2.one*0.5f;
+buildingGen.generateUVs=true;
+buildingGen.topRelative=true;

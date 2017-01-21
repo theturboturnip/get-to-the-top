@@ -1,0 +1,1106 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"VEcto",
+				"Vector3"
+			],
+			[
+				"coll",
+				"collider"
+			],
+			[
+				"va",
+				"vaultOverDistance"
+			],
+			[
+				"hor",
+				"horizDir"
+			],
+			[
+				"old",
+				"oldLocalInputMag"
+			],
+			[
+				"loca",
+				"localInputDir"
+			],
+			[
+				"start",
+				"startGroundedTime"
+			],
+			[
+				"VEc",
+				"Vector3"
+			],
+			[
+				"ma",
+				"magnitude"
+			],
+			[
+				"global",
+				"globalInputDir"
+			],
+			[
+				"e",
+				"eulerAngles"
+			],
+			[
+				"off",
+				"offscreenGuide"
+			],
+			[
+				"of",
+				"offscreenGuide"
+			],
+			[
+				"on",
+				"onscreenMag"
+			],
+			[
+				"an",
+				"anchorMax"
+			],
+			[
+				"VE",
+				"Vector2"
+			],
+			[
+				"offscreen",
+				"offscreenGuide"
+			],
+			[
+				"anch",
+				"anchorMin"
+			],
+			[
+				"anchor",
+				"anchorMax"
+			],
+			[
+				"Set",
+				"SetActive"
+			],
+			[
+				"onc",
+				"onscreenGuide"
+			],
+			[
+				"head",
+				"headBobTime"
+			],
+			[
+				"headB",
+				"headBobAmount"
+			],
+			[
+				"to",
+				"toDestroy"
+			],
+			[
+				"bc",
+				"bcArray"
+			],
+			[
+				"lig",
+				"lightLevel"
+			],
+			[
+				"globa",
+				"globalInputDir"
+			],
+			[
+				"VEctor",
+				"Vector2"
+			],
+			[
+				"wind",
+				"windSource"
+			],
+			[
+				"grounded",
+				"groundedHeadBob"
+			],
+			[
+				"gruo",
+				"groundedHeadBob"
+			],
+			[
+				"ground",
+				"groundedMoveDistance"
+			],
+			[
+				"local",
+				"localPosition"
+			],
+			[
+				"Play",
+				"PlayerMovementMode"
+			],
+			[
+				"gr",
+				"groundedVolume"
+			],
+			[
+				"di",
+				"distanceToTop"
+			],
+			[
+				"distance",
+				"distanceToTop"
+			],
+			[
+				"wallrun",
+				"wallrunDistanceMultiplier"
+			],
+			[
+				"wallrunDi",
+				"wallrunDistanceMultiplier"
+			],
+			[
+				"wallrunDis",
+				"wallrunDistanceMultiplier"
+			],
+			[
+				"feet",
+				"feetSource"
+			],
+			[
+				"move",
+				"moveDistanceForFootEffect"
+			],
+			[
+				"current",
+				"currentMode"
+			],
+			[
+				"curr",
+				"currentMode"
+			],
+			[
+				"jump",
+				"jumpClip"
+			],
+			[
+				"Audio",
+				"AudioClip"
+			],
+			[
+				"max",
+				"maxWindVolume"
+			],
+			[
+				"ve",
+				"velocity"
+			],
+			[
+				"target",
+				"targetWindVolume"
+			],
+			[
+				"targ",
+				"targetWindVolume"
+			],
+			[
+				"windM",
+				"windMaxSpeed"
+			],
+			[
+				"Settings",
+				"SettingsData"
+			],
+			[
+				"Sett",
+				"SettingsData"
+			],
+			[
+				"cloudHeight",
+				"cloudHeightMax"
+			],
+			[
+				"cloud",
+				"cloudHorizMax"
+			],
+			[
+				"clou",
+				"cloudHorizMax"
+			],
+			[
+				"checkpoi",
+				"checkpointPos"
+			],
+			[
+				"collisio",
+				"collisionHits"
+			],
+			[
+				"LEvel",
+				"LevelHandler"
+			],
+			[
+				"co",
+				"collisionHits"
+			],
+			[
+				"check",
+				"checkpointDir"
+			],
+			[
+				"colli",
+				"collisionDirections"
+			],
+			[
+				"Level",
+				"LevelHandler"
+			],
+			[
+				"pl",
+				"playerCollider"
+			],
+			[
+				"playerC",
+				"playerControl"
+			],
+			[
+				"C",
+				"CustomCharacterController"
+			],
+			[
+				"maxCha",
+				"maxChainedGapsAtEnd"
+			],
+			[
+				"Ac",
+				"ActivateCheckpoint"
+			],
+			[
+				"maxChainedWallruns",
+				"maxChainedWallrunsAtEnd"
+			],
+			[
+				"previous",
+				"previousTypes"
+			],
+			[
+				"Random",
+				"RandomRange"
+			],
+			[
+				"building",
+				"buildingData"
+			],
+			[
+				"spawn",
+				"spawnDespawnDiscrepancy"
+			],
+			[
+				"prev",
+				"previousAngleDist"
+			],
+			[
+				"ds",
+				"despawnQueue"
+			],
+			[
+				"desp",
+				"despawnQueue"
+			],
+			[
+				"spa",
+				"spawnedBuildingsFrontFirst"
+			],
+			[
+				"des",
+				"despawnQueue"
+			],
+			[
+				"de",
+				"despawnQueue"
+			],
+			[
+				"angle",
+				"angle2"
+			],
+			[
+				"spaw",
+				"spawnedBuildings"
+			],
+			[
+				"Build",
+				"BuildingBehindPlayer"
+			],
+			[
+				"sp",
+				"spawnedBuildings"
+			],
+			[
+				"player",
+				"playerAngle"
+			],
+			[
+				"buil",
+				"buildingAngle"
+			],
+			[
+				"build",
+				"buildingAngle"
+			],
+			[
+				"despa",
+				"despawnQueue"
+			],
+			[
+				"Handle",
+				"HandleBuildings"
+			],
+			[
+				"cel",
+				"cellCentreDist"
+			],
+			[
+				"cell",
+				"cellX"
+			],
+			[
+				"Desp",
+				"DespawnBuilding"
+			],
+			[
+				"for",
+				"foreach"
+			],
+			[
+				"creat",
+				"creationsPerTick"
+			],
+			[
+				"cre",
+				"creationsPerTick"
+			],
+			[
+				"Des",
+				"DespawnBuilding"
+			],
+			[
+				"creation",
+				"creationOverride"
+			],
+			[
+				"Add",
+				"AddToSpawnQueue"
+			],
+			[
+				"bui",
+				"buildings"
+			],
+			[
+				"cos",
+				"constantMeshBuildingCount"
+			],
+			[
+				"DEs",
+				"DespawnBuildingObject"
+			],
+			[
+				"Spawn",
+				"SpawnBuilding"
+			],
+			[
+				"cells",
+				"cellsSampled"
+			],
+			[
+				"buildingS",
+				"buildingBaseMesh"
+			],
+			[
+				"fade",
+				"fadeEffect"
+			],
+			[
+				"Get",
+				"GetComponent"
+			],
+			[
+				"Start",
+				"StartLevelTrigger"
+			],
+			[
+				"pro",
+				"isProcGen"
+			],
+			[
+				"thread",
+				"threadRandom"
+			],
+			[
+				"init",
+				"initialAlphas"
+			],
+			[
+				"vaultSta",
+				"vaultStartAngle"
+			],
+			[
+				"Gizmo",
+				"gizmoColor"
+			],
+			[
+				"wallrunS",
+				"wallrunStartThreshold"
+			],
+			[
+				"doo",
+				"doorOpenTime"
+			],
+			[
+				"Re",
+				"requiredTargets"
+			],
+			[
+				"Res",
+				"RegisterCreatedObjectUndo"
+			],
+			[
+				"G",
+				"GameObject"
+			],
+			[
+				"deca",
+				"decal_g"
+			],
+			[
+				"point",
+				"pointInCircle"
+			],
+			[
+				"ati",
+				"activateStart"
+			],
+			[
+				"ac",
+				"activateTime"
+			],
+			[
+				"Crea",
+				"CreatePrefab"
+			],
+			[
+				"layer",
+				"layerObj"
+			],
+			[
+				"vertex",
+				"vertexOffset"
+			],
+			[
+				"verte",
+				"vertexOffset"
+			],
+			[
+				"Pla",
+				"PlayerMovementMode"
+			],
+			[
+				"startLevel",
+				"startLevelStart"
+			],
+			[
+				"sta",
+				"startLevelTargetHeight"
+			],
+			[
+				"strart",
+				"startLevelTargetHeight"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+			"settings":
+			{
+				"buffer_size": 4005,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gameplay/Guns/MuzzleFlash.cs",
+			"settings":
+			{
+				"buffer_size": 3046,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/Desktop/YGD/Assets/TimeScaler.cs",
+			"settings":
+			{
+				"buffer_size": 291,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Physics Junk/PhysicsJunk.cs",
+			"settings":
+			{
+				"buffer_size": 5851,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Desktop/YGD/Assets/Scripting/UI/Menus/LevelSelectButton.cs",
+		"/D/Desktop/YGD/Assets/UILevelStartText.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/PauseMenuHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Control/NuPlayer.cs",
+		"/D/Desktop/YGD/Assets/SettingsApplier.cs",
+		"/D/Desktop/YGD/Assets/UIAudioOptions.cs",
+		"/D/Desktop/YGD/Assets/UIControlOptions.cs",
+		"/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Static Data/LevelData.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Static Data/SaveData.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/LevelScrollHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/LevelCheckpoint.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/LevelHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/FinalWorldGen.cs",
+		"/D/Desktop/YGD/Assets/UIProcGenSeedEditor.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/EndLevelUIHandler.cs",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Custom/GTTTComplete/GTTTCompleteImageEffect.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Static Data/SettingsData.cs",
+		"/D/Steam/steamapps/common/Overgrowth/Data/Scripts/aschar.as",
+		"/D/Steam/steamapps/common/Overgrowth/Data/Mods/FirstPersonMod/Data/Scripts/aschar.as",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/RealtimeBuildingGeneratorv2.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/PhysicsObjectHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/BuildingMeshGenLib.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/BuildingGeneratorv2.cs",
+		"/D/Desktop/YGD/Assets/Editor/CustomGameObjects.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/CloudShader.shader",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/GiveShotgunTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/DecalHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Guns/Bullet.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/CloudSkyHandler.cs",
+		"/D/Desktop/YGD/Assets/UIOptionsMenu.cs",
+		"/D/Desktop/YGD/Assets/UIControlAxis.cs",
+		"/D/Desktop/YGD/Assets/MeshNormalFlattener.cs",
+		"/D/Desktop/YGD/Assets/UIScroller.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Menus/ResetDataButton.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/InputHandler.cs",
+		"/D/Desktop/YGD/Assets/UISlider.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/UIControlSet.cs",
+		"/D/Desktop/YGD/Assets/UIKeyChangeMenu.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/End Level/EndUIButton.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/CelShader.shader",
+		"/D/Desktop/YGD/Assets/UIResolutionMenu.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/CloudLayerHandler.cs",
+		"/D/Steam/steamapps/common/wallpaper_engine/projects/defaultprojects/deep_space/project.json",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Guns/Shotgun.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Menus/ActivateMenuButton.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/MenuHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/PlayerTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/TipTrigger.cs",
+		"/D/Documents/OBS/Snip/README.md",
+		"/C/Users/theda/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/D/Steam/steamapps/common/wallpaper_engine/projects/myprojects/radiocam/project.json",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/EndLevelTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/LevelExitDoorTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/TipHandler.cs",
+		"/D/Desktop/YGD/Assets/GuideHandler.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/DecalShader.shader",
+		"/D/Steam/steamapps/common/wallpaper_engine/projects/myprojects/htmltest1/js/audio.js",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/Obsolete/BranchingWorldGen.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/CelShaderLib.cginc",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Control/CustomCharacterController.cs",
+		"/D/Desktop/YGD/Assets/FinalBuildingReflControl.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/StartLevelTrigger.cs",
+		"/D/Desktop/YGD/Assets/ProcGenCheckpoint.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/CelShaderTransparent.shader",
+		"/D/Desktop/YGD/Builds/v0.8/GetToTheTop_Data/output_log.txt",
+		"/C/Users/theda/AppData/LocalLow/Turbo Turnip Productions/Get To The Top/savedata.sv",
+		"/D/Desktop/YGD/Assets/Scripting/UI/UIShotgunInfo.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/UIShellHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/WorldGenLib.cs",
+		"/D/Desktop/YGD/Assets/BuildingData.txt",
+		"/D/Desktop/YGD/Assets/Scripting/SuperLibraries/SuperMaths.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/CustomUI.shader",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Scripts/Antialiasing.cs",
+		"/D/Desktop/YGD/Assets/ScreenshotTool.cs",
+		"/D/Desktop/YGD/Assets/ReadOnlyAttribute.cs",
+		"/D/Desktop/YGD/Assets/UIShellHandler.cs",
+		"/D/Desktop/YGD/Assets/UIShotgunInfo.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/TargetCompletionCheckpoint.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/TargetCloseTrigger.cs",
+		"/D/Desktop/YGD/Assets/FenceGenerator.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/TargetWakeTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Handlers/TargetHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Control/PhysicsDebug.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Level Objects/Special Triggers/TubeTrigger.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/Guns/Gun.cs",
+		"/D/Desktop/YGD/Assets/Editor/BlenderPlacement.cs",
+		"/D/Desktop/YGD/Assets/TargetWakeTrigger.cs",
+		"/D/Desktop/YGD/Assets/TargetHandler.cs",
+		"/D/Desktop/YGD/Assets/TipHandler.cs",
+		"/D/Desktop/YGD/Assets/Editor/ModelImportMaterialFix.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Pause Menu/PauseMenuHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Pause Menu/RestartButton.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Pause Menu/MainMenuButton.cs",
+		"/D/Desktop/YGD/Assets/CloudSkyHandler.cs",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Scripts/BlurOptimized.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/LevelHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Skybox/CloudLayerHandler.cs",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/LevelSkybox.shader",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/Obsolete/IslandMeshGen.cs",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Scripts/Blur.cs",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Shaders/GlobalFog.shader",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Custom/GTTTComplete/GTTTCompleteShader.shader",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Custom/FadeOut/FadeOutImageEffect.cs",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Shaders/BlurEffectConeTaps.shader",
+		"/D/Desktop/YGD/Assets/Graphics/ImageEffects/Shaders/RadialBlur.shader",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/CelTwoFace.shader",
+		"/D/Desktop/YGD/Assets/Graphics/Shaders/New/Cel/ViewCelShader.shader",
+		"/D/Desktop/YGD/Assets/Scripting/UI/End Level/EndUIStar.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Misc/CursorHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/SublimeProject.sublime-project",
+		"/D/Desktop/YGD/Assets/Scripting/Gameplay/GameHandler.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/End Level/EndLevelUIHandler.cs",
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/ScreenshotTool.cs",
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/DayNightControl.cs",
+		"/D/Desktop/YGD/Assets/Scripting/UI/Pause Menu/UnpauseButton.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Physics Junk/PhysicsJunk.cs",
+		"/D/Desktop/YGD/Assets/DebugCharacter.cs",
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/Graphics/Shaders/Snow.shader",
+		"/D/Desktop/YGD/Assets/PhysicsDebug.cs",
+		"/D/Desktop/YGD/Assets/Scripting/SuperLibraries/SuperCollisions.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/Obsolete/RealtimeBuildingGenerator.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Physics Junk/PhysicsObjectHandler.cs",
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/SettingsHandler.cs",
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/TimeScaleText.cs",
+		"/D/Desktop/YGD/Assets/Scripting/Skybox/DynamicSkyboxDuplicator.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/BuildingUVs.cs",
+		"/D/Desktop/YGD/Assets/Scripting/World Generation/RealtimeBuildingGenerator.cs"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\n",
+			"levelSaveData",
+			"wallrunn",
+			"checkpointActiveTime",
+			"windSource.volume",
+			"yp",
+			"xp",
+			"ym",
+			"xm",
+			"refl",
+			"ambience",
+			"newValue",
+			"Time.time",
+			"otherObject",
+			"float",
+			"currentResolution",
+			"FOV",
+			"Input.",
+			"Input",
+			"OrganiseComponents",
+			"	}",
+			"runAxis",
+			"InputButton",
+			"Button",
+			" \n",
+			"Input.",
+			"Input",
+			"auto",
+			"autocomplete",
+			"auto",
+			"					",
+			"			\n",
+			"head",
+			"Camera",
+			"targetWindVolume=1",
+			"1",
+			"actualVolume",
+			"targetWindVolume",
+			"	}",
+			"currentCheckpoint",
+			"despawnQueue",
+			"angle2",
+			"rings[",
+			"ringCount",
+			"Debug",
+			"pos",
+			"buildingData[index].pos",
+			"Init",
+			"shouldBeSpawned",
+			"\";",
+			"tag",
+			"		\n",
+			"Material",
+			"vertexOffset",
+			"startDeceleration",
+			");//",
+			"_NoiseTex",
+			"look",
+			"UNITY_EDITOR",
+			"startDeceleration",
+			"currentMode=PlayerMovementMode.",
+			"currentM",
+			"UNITY",
+			"#if",
+			"c.center",
+			"targetHeight",
+			"vaultTargetHeight",
+			"totalMoveDistance",
+			"Debug.Log",
+			"Debug",
+			"GetCollisionDirection",
+			"cachedCollisionDir",
+			"AddComponent",
+			"collision",
+			")(",
+			"foreach",
+			"GameObject",
+			"pos",
+			"StartMenuUI",
+			"75f",
+			"if",
+			"Debug.Log",
+			"targets",
+			"targets_",
+			"targets",
+			"fadeType",
+			"}\n",
+			"Level",
+			"();\n",
+			"int",
+			"}\n",
+			"deployStart=",
+			"currentMode=PlayerMovementMode.",
+			".swf",
+			"swf",
+			"download",
+			"flv",
+			"dl",
+			"download",
+			"Reset()",
+			"InAir",
+			"transforms",
+			"Reset",
+			"animState=\"Deploy\"",
+			"animState=",
+			"animState",
+			"lookPoint",
+			"Dep",
+			"canFire",
+			"canFiure",
+			"lockedLook",
+			"root",
+			"ColliderType",
+			"collDir",
+			"Specular",
+			"radius",
+			"))\n",
+			"		",
+			"175",
+			"200",
+			"ResetSpawnTime",
+			"v",
+			"ammotype",
+			"oldBuilding",
+			"intTable",
+			"print",
+			"ply",
+			"()\n"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"progress.levelSaveData",
+			"yP",
+			"xP",
+			"yN",
+			"xN",
+			"ambient",
+			"value",
+			"Time.unscaledTime",
+			"hudObject",
+			"FPS",
+			"OrganiseChildren",
+			"InputButton",
+			"actualWindVolume",
+			"_MainTex",
+			"",
+			"vaultTargetHeight",
+			"vaultOverDistance",
+			"targets_",
+			"lookTarget",
+			"150",
+			"175",
+			"CharacterController",
+			"",
+			"Reflectivity",
+			"current",
+			"angle",
+			"",
+			"y",
+			"b",
+			"pathSegments",
+			"currentDistance",
+			"collPoint",
+			"lookSmoothing",
+			"vaultTime",
+			"ledgeClimbTime",
+			"shader",
+			"displacementShader",
+			"cellsPerSide",
+			"isEnabled",
+			"OldBuilding",
+			"",
+			"OldBuilding",
+			"originalFoamScale",
+			"worldRadius",
+			"toOrbit.size",
+			"shape",
+			"cock",
+			"midCockPos",
+			"wallrunning",
+			"wallNormal",
+			"wallDirection",
+			"*",
+			"splinePoints",
+			"c.forces",
+			"projectedDelta",
+			"length",
+			"transform.position"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+					"settings":
+					{
+						"buffer_size": 4005,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3070,
+								3070
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 855.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Gameplay/Guns/MuzzleFlash.cs",
+					"settings":
+					{
+						"buffer_size": 3046,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2283,
+								2283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/Desktop/YGD/Assets/TimeScaler.cs",
+					"settings":
+					{
+						"buffer_size": 291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Physics Junk/PhysicsJunk.cs",
+					"settings":
+					{
+						"buffer_size": 5851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3192,
+								3192
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 769.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 94.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Steam/steamapps/common/GarrysMod/garrysmod/gamemodes/simplydeathmatchbeta/beta.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true
+}

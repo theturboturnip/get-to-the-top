@@ -1,0 +1,6 @@
+Things learned for the future:
+
+Vertical movement (i.e. no lateral whatsoever) is v. boring.
+All vertical movement must be combined with lateral (see in Test.unity where the wallrun ends abruptly at a higher position) b/c that gives a sense of speed 
+Another design like this is in the first Game Demo video. You jump, thrust, wallrun, jump, thrust up, and land on a block. That acheives vertical displacement while feeling fun.
+For the complete opposite, see NewLevels in LevelTest.unity. The first section is ok, but in the ending you're relying on solely vertical movement. 
