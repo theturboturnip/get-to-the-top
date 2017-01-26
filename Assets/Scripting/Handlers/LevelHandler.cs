@@ -38,7 +38,7 @@ public class LevelHandler : MonoBehaviour {
 	public static Shotgun shotgun;
 
 	public static LevelHandler currentLevel;
-	public static bool levelComplete=false;
+	public static bool levelComplete=false,sendInEditor=false;
 GTTTCompleteImageEffect fadeEffect;
 bool respawning;
 	
@@ -262,6 +262,13 @@ bool respawning;
 		s.shouldDeploy=false;
 		s.StartDeploy();
 		player.gameObject.GetComponent<NuPlayer>().BeginLevelEnd();
+
+		//Send the time taken to the server
+		if (Application.isEditor||sendInEditor){
+			if (GTTTNetwork.SendTime(levelCompleteTime))
+				Debug.Log("Time send suceeded");
+			else Debug.Log("Time send failed");
+		}
 
 		levelComplete=true;
 	}
