@@ -38,9 +38,9 @@ public class LevelHandler : MonoBehaviour {
 	public static Shotgun shotgun;
 
 	public static LevelHandler currentLevel;
-	public static bool levelComplete=false,sendInEditor=false;
-GTTTCompleteImageEffect fadeEffect;
-bool respawning;
+	public static bool levelComplete=false,sendInEditor=true;
+	GTTTCompleteImageEffect fadeEffect;
+	bool respawning;
 	
 	public float loadLevelFadeTime=1;
 	float loadLevelFadeStart=-1;
@@ -265,9 +265,7 @@ bool respawning;
 
 		//Send the time taken to the server
 		if (Application.isEditor||sendInEditor){
-			if (GTTTNetwork.SendTime(levelCompleteTime))
-				Debug.Log("Time send suceeded");
-			else Debug.Log("Time send failed");
+			GTTTNetwork.SendTime(levelCompleteTime,GTTTNetwork.EchoResponse);
 		}
 
 		levelComplete=true;

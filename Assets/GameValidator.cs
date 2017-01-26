@@ -6,8 +6,10 @@ public class GameValidator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(GTTTNetwork.RequestValidate(3));
-		Debug.Log(GTTTNetwork.GetCurrentVersion());
+		GTTTNetwork.RequestValidate(Random.Range(0,100),GTTTNetwork.EchoResponse);
+		GTTTNetwork.GetCurrentVersion(GTTTNetwork.EchoResponse);
+		//Debug.Log(GTTTNetwork.RequestValidate(3));
+		//Debug.Log(GTTTNetwork.GetCurrentVersion());
 	}
 	
 	// Update is called once per frame
