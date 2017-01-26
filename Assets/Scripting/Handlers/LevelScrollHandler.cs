@@ -46,7 +46,7 @@ public class LevelScrollHandler : MonoBehaviour {
 					buttonText.text+="\nBest Time: "+SecondsToString(lp.timeTaken);
 					int star=3;
 					foreach(Transform starT in buttonObject.transform.Find("Stars")){
-						if ((star==1&&lp.starRanking>=1)||(star==1&&lp.starRanking>=1)||(star==1&&lp.starRanking>=1))
+						if ((star==1&&lp.starRanking>=1)||(star==2&&lp.starRanking>=2)||(star==3&&lp.starRanking>=3))
 							starT.gameObject.GetComponent<Image>().material=starMat;
 						else
 							starT.gameObject.GetComponent<Image>().material=noStarMat;

@@ -26,6 +26,7 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 	[ReadOnly] public float maxCellDist;
 	public float cellSize,cellRadius;
 	public bool useCullingGroupAPI=false;
+	float oldFarClip;
 	//public CullingDistanceBehaviour cullingDistBehaviour;
 
 	bool inited=false;
@@ -328,7 +329,7 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		canDespawn=true;
 		float cellCentreDist;
 		maxCellDist=c.farClipPlane/Mathf.Cos(c.fov*Mathf.Deg2Rad/2);
-		bool creationOverride=(c!=previousCamera)||(Vector3.Distance(prevCPos,cPos)>cellRadius);
+		bool creationOverride=(c!=previousCamera)||(Vector3.Distance(prevCPos,cPos)>cellRadius)||(c.farClipPlane!=oldFarClip);
 		if (creationOverride)
 			Debug.Log("Complete creation "+maxCellDist);
 		cellsSampled=0;
@@ -349,6 +350,7 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		}
 		previousCamera=c;
 		prevCPos=cPos;
+		oldFarClip=c.farClipPlane;
 	}
 
 	/*void OnDrawGizmos(){

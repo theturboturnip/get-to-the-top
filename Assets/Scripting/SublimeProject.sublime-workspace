@@ -520,35 +520,11 @@
 	"buffers":
 	[
 		{
-			"file": "/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+			"file": "/D/Documents/YGD/YGD Unity Project/Assets/GuideHandler.cs",
 			"settings":
 			{
-				"buffer_size": 4005,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Gameplay/Guns/MuzzleFlash.cs",
-			"settings":
-			{
-				"buffer_size": 3046,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/D/Desktop/YGD/Assets/TimeScaler.cs",
-			"settings":
-			{
-				"buffer_size": 291,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Physics Junk/PhysicsJunk.cs",
-			"settings":
-			{
-				"buffer_size": 5851,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -576,6 +552,10 @@
 	},
 	"file_history":
 	[
+		"/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+		"/D/Documents/YGD/YGD Unity Project/Assets/Scripting/Physics Junk/PhysicsJunk.cs",
+		"/D/Desktop/YGD/Assets/TimeScaler.cs",
+		"/D/Documents/YGD/YGD Unity Project/Assets/Scripting/Gameplay/Guns/MuzzleFlash.cs",
 		"/D/Desktop/YGD/Assets/Scripting/UI/Menus/LevelSelectButton.cs",
 		"/D/Desktop/YGD/Assets/UILevelStartText.cs",
 		"/D/Desktop/YGD/Assets/Scripting/Handlers/PauseMenuHandler.cs",
@@ -583,7 +563,6 @@
 		"/D/Desktop/YGD/Assets/SettingsApplier.cs",
 		"/D/Desktop/YGD/Assets/UIAudioOptions.cs",
 		"/D/Desktop/YGD/Assets/UIControlOptions.cs",
-		"/D/Desktop/YGD/Assets/UIVideoOptions.cs",
 		"/D/Desktop/YGD/Assets/Scripting/Static Data/LevelData.cs",
 		"/D/Desktop/YGD/Assets/Scripting/Static Data/SaveData.cs",
 		"/D/Desktop/YGD/Assets/Scripting/Handlers/LevelScrollHandler.cs",
@@ -700,10 +679,7 @@
 		"/D/Desktop/YGD/Assets/Scripting/World Generation/Obsolete/RealtimeBuildingGenerator.cs",
 		"/D/Desktop/YGD/Assets/Scripting/Physics Junk/PhysicsObjectHandler.cs",
 		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/SettingsHandler.cs",
-		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/TimeScaleText.cs",
-		"/D/Desktop/YGD/Assets/Scripting/Skybox/DynamicSkyboxDuplicator.cs",
-		"/D/Desktop/YGD/Assets/Scripting/World Generation/BuildingUVs.cs",
-		"/D/Desktop/YGD/Assets/Scripting/World Generation/RealtimeBuildingGenerator.cs"
+		"/D/Documents/VolumetricWallpaper/VolumetricWallpaper/Assets/TimeScaleText.cs"
 	],
 	"find":
 	{
@@ -923,113 +899,31 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/Desktop/YGD/Assets/UIVideoOptions.cs",
+					"file": "/D/Documents/YGD/YGD Unity Project/Assets/GuideHandler.cs",
 					"settings":
 					{
-						"buffer_size": 4005,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3070,
-								3070
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Gameplay/Guns/MuzzleFlash.cs",
-					"settings":
-					{
-						"buffer_size": 3046,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2283,
-								2283
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 495.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/D/Desktop/YGD/Assets/TimeScaler.cs",
-					"settings":
-					{
-						"buffer_size": 291,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								223,
-								223
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Physics Junk/PhysicsJunk.cs",
-					"settings":
-					{
-						"buffer_size": 5851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3192,
-								3192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 769.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
