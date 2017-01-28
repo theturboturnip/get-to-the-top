@@ -13,10 +13,6 @@ public class UIProcGenSeedEditor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void ChangeSeed (string newValue) {
-		int newSeed=0;
-		foreach(char c in newValue)
-			newSeed+=(int)c;
-		Debug.Log(newSeed);
-		FinalWorldGen.seed=newSeed;
+		FinalWorldGen.seedString=newValue;
 	}
 }

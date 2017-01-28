@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Security.Cryptography;
 using System;
 
 public class FinalWorldGen : MonoBehaviour {
@@ -11,6 +12,7 @@ public class FinalWorldGen : MonoBehaviour {
 					*/
 
 	public static int seed=-1;
+	public static string seedString="default seed";
 	public float worldRadius=5000;
 	public bool generateOnStart=true,useAABB=true,threaded=true;
 	public int ringCount;
@@ -99,6 +101,17 @@ public class FinalWorldGen : MonoBehaviour {
 
 		buildProgress=0;
 		buildings=new List<Building>();
+
+		//Generate seed number from seedString
+		MD5 md5 = System.Security.Cryptography.MD5.Create();
+		byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(seedString);
+		byte[] hash = md5.ComputeHash(inputBytes);
+		// If the system architecture is little-endian (that is, little end first),
+        // reverse the byte array.
+        if (BitConverter.IsLittleEndian)
+            Array.Reverse(hash);
+
+        seed = BitConverter.ToInt32(hash, 0);
 		threadRandom=new System.Random(seed);
 
 		if (maxChainedWallrunsAtEnd <1) maxChainedWallrunsAtEnd=1;
@@ -140,6 +153,7 @@ public class FinalWorldGen : MonoBehaviour {
 		LevelHandler.currentLevel.WorldGenComplete();
 
 		buildProgress=1.1f;
+		GTTTNetwork.SendTime(-1,GTTTNetwork.EchoResponse);
 	}
 
 	void FillPath(float startDist,float endDist,System.Random threadRandom){
@@ -181,7 +195,8 @@ public class FinalWorldGen : MonoBehaviour {
 				if (deviation==0) deviation=1;
 				dist1+=w1*deviation;
 			}
-			h1=Mathf.Lerp(pathStartHeight,pathEndHeight,p)+insideHeightDelta*(1-(dist1-minPathStartDist)/(maxPathStartDist-minPathStartDist))+SuperMaths.RandomRange(threadRandom,-maxHeightDeviation,maxHeightDeviation);
+			h1=Mathf.Lerp(pathStartHeight,pathEndHeight,p)+insideHeightDelta*(1-(dist1-minPathStartDist)/(maxPathStartDist-minPathStartDist));
+			if (theta<340) h1+=SuperMaths.RandomRange(threadRandom,-maxHeightDeviation,maxHeightDeviation)*(theta/360f);
 			if (buildingType==1)
 				h1+=50; //SHOULD BE RANDOM VAL
 			buildProgress+=(dtheta)/(pathEndAngle-pathStartAngle)*1f/pathNumber;
