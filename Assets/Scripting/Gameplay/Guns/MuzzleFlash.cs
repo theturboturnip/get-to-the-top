@@ -14,7 +14,7 @@ public class MuzzleFlash : MonoBehaviour {
 	MeshFilter mf;
 	float totalFlashTime=-1;
 	Vector3[] startVerts,endVerts,verts;
-	Vector3 originalScale;
+	//Vector3 originalScale;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +41,7 @@ public class MuzzleFlash : MonoBehaviour {
 
 		if(flashTime<=0)
 			flashTime=0.01f;
-		originalScale=transform.localScale;
+		//originalScale=transform.localScale;
 		//transform.localScale=Vector3.zero;
 		if(flashLight!=null) flashLight.enabled=false;
 

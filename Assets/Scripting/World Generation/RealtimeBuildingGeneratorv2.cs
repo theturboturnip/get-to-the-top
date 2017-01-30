@@ -35,7 +35,7 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 	FinalWorldGen worldGen;
 	Transform buildingParent;
 	int i,j;
-	bool canSpawn,canDespawn;
+	//bool canSpawn,canDespawn;
 	Mesh buildingMesh;
 	bool[] meshSpotAvailable;
 	List<int> spawnQueue,despawnQueue;
@@ -127,12 +127,12 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		//Despawn buildings we want to despawn
 
 		int creationsPerTick=10;
-		int i=0,despawnIndex=0;
+		int i=0;//,despawnIndex=0;
 		spawnListLen=spawnQueue.Count;
 		despawnListLen=despawnQueue.Count;
 		playerAngle=WorldGenLib.WorldToPolar(Camera.main.transform.position).y;	
-		float buildingAngle;
-		int spawnDespawnDiscrepancy=spawnQueue.Count-despawnQueue.Count;// we need to find x buildings to despawn
+		//float buildingAngle;
+		//int spawnDespawnDiscrepancy=spawnQueue.Count-despawnQueue.Count;// we need to find x buildings to despawn
 		/*if (spawnDespawnDiscrepancy>0){
 			buildingAngle=worldGen.buildings[spawnQueue[0]].angle;
 			if (AngleDist(playerAngle,buildingAngle)<0){
@@ -325,10 +325,10 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		//Debug.Log(c);
 		Vector3 cPos=c.transform.position;
 		cPos.y=0;
-		canSpawn=true;
-		canDespawn=true;
+		//canSpawn=true;
+		//canDespawn=true;
 		float cellCentreDist;
-		maxCellDist=c.farClipPlane/Mathf.Cos(c.fov*Mathf.Deg2Rad/2);
+		maxCellDist=c.farClipPlane/Mathf.Cos(c.fieldOfView*Mathf.Deg2Rad/2);
 		bool creationOverride=(c!=previousCamera)||(Vector3.Distance(prevCPos,cPos)>cellRadius)||(c.farClipPlane!=oldFarClip);
 		if (creationOverride)
 			Debug.Log("Complete creation "+maxCellDist);

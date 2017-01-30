@@ -15,11 +15,8 @@ public class Bullet : MonoBehaviour {
 
 	float totalLifeTime=0;
 
-	CustomCharacterController playerControl;
-
 	// Use this for initialization
 	void Start () {
-		playerControl=GameObject.FindWithTag("Player").GetComponent<CustomCharacterController>();		
 	}
 	
 	// Update is called once per frame
@@ -35,9 +32,6 @@ public class Bullet : MonoBehaviour {
 		bool hit=false;
 		hit=Physics.Raycast(transform.position,(newPos-transform.position).normalized,out rh,(newPos-transform.position).magnitude);
 		if (hit){
-			if (rh.transform.gameObject.tag=="Target"){
-				rh.transform.parent.gameObject.GetComponent<TargetHandler>().GetShot();
-			}
 			if (rh.transform.gameObject.tag=="IgnoreBullet") return;
 			if(DecalHandler.currentHandler!=null && decalTex!=null)
 				DecalHandler.currentHandler.CreateDecal(rh.point+rh.normal*Random.Range(0f,0.01f),rh.normal,decalTex,decalTexScale,rh.transform,true);

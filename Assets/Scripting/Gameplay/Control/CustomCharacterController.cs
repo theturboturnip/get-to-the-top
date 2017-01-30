@@ -24,7 +24,8 @@ public class CustomCharacterController : MonoBehaviour {
 	public LayerMask layerMask;
 	[Header("Capsule Data")]
 	//public Vector3 center;
-	public float radius,height,skinWidth;
+	public float radius;
+	public float height,skinWidth;
 	[Header("Character Data")]
 	public Vector3 velocity;
 	public Vector3 collisionDirection;
@@ -33,7 +34,8 @@ public class CustomCharacterController : MonoBehaviour {
 	public List<RaycastHit> collisionHits;
 
 	[Header("Debug Data")]
-	public Vector3 debugMove,tickDelta,endTickPos;
+	public Vector3 debugMove;
+	public Vector3 tickDelta,endTickPos;
 
 	public Vector3 capsuleStart,capsuleEnd;
 	public Vector3 cylinderStart,cylinderEnd;
@@ -55,7 +57,7 @@ public class CustomCharacterController : MonoBehaviour {
 		}else{
 			ourCollider=gameObject.AddComponent<BoxCollider>();
 			((BoxCollider)ourCollider).center=Vector3.zero;
-			((BoxCollider)ourCollider).extents=new Vector3(radius,height/2,radius);
+			((BoxCollider)ourCollider).size=new Vector3(radius,height/2,radius)*2;
 		}
 			ourCollider.enabled=false;
 
@@ -111,9 +113,9 @@ public class CustomCharacterController : MonoBehaviour {
 		collisionColliders=new List<Collider>();
 		collisionHits=new List<RaycastHit>();
 		
-		Vector3 collBoxDim=new Vector3(radius,height/2,radius);
+		//Vector3 collBoxDim=new Vector3(radius,height/2,radius);
 
-		Collider[] isect;
+		//Collider[] isect;
 		Vector3 actualDelta=Vector3.zero;
 		bool collision=false;
 		Vector3 preMovePos;
@@ -154,7 +156,7 @@ public class CustomCharacterController : MonoBehaviour {
 		//isect=Physics.OverlapBox(transform.position,collBoxDim);
 		//velocity=Vector3.zero;
 		Vector3 direction=Vector3.zero;
-		float distance=0,smallestDist;
+		float distance=0;//,smallestDist;
 		Vector3 collPoint;
 		bool hadCollision=false;
 		foreach (Collider c in isect){

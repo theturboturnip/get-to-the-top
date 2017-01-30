@@ -71,7 +71,7 @@ public class CloudSkyHandler : MonoBehaviour {
 		tex.filterMode=FilterMode.Point;
 		//int rectCount=64;
 		//int minRectDimension=res/16,maxRectDimension=res/8;
-		int x=0,y,w=texResX,oldEdge;
+		//int x=0,y,w=texResX,oldEdge;
 		FillRect(tex,0,0,texResX,texResY,Color.white);
 		//Start at the bottom, choose a random x start and width
 		/*for(y=0;y<texResY;y++){

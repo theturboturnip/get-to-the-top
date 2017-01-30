@@ -5,8 +5,8 @@ using UnityEngine;
 public class UIOptionsMenu : MonoBehaviour {
 	public RectTransform scrollParent;
 	public UIScroller uiScrollbar;
-	RectTransform video,audio,control,rt;
-	UIControlSet[] controlSets;
+	RectTransform video,audioMenu,control,rt;
+	//UIControlSet[] controlSets;
 	public static UIOptionsMenu current;
 
 	// Use this for initialization
@@ -19,11 +19,11 @@ public class UIOptionsMenu : MonoBehaviour {
 		}
 		scrollParent.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,OrganiseChildren(scrollParent));
 		video=(RectTransform)scrollParent.GetChild(0);
-		audio=(RectTransform)scrollParent.GetChild(1);
+		audioMenu=(RectTransform)scrollParent.GetChild(1);
 		control=(RectTransform)scrollParent.GetChild(2);
 		uiScrollbar.maxY=scrollParent.rect.height-((RectTransform)scrollParent.parent).rect.height;
 		//OrganiseChildren(control);
-		controlSets=scrollParent.gameObject.GetComponentsInChildren<UIControlSet>();
+		//controlSets=scrollParent.gameObject.GetComponentsInChildren<UIControlSet>();
 		current=this;
 	}
 	
@@ -49,7 +49,7 @@ public class UIOptionsMenu : MonoBehaviour {
 	public void ApplySettings(){
 		//Send values to SettingsData, tell it to save
 		video.gameObject.GetComponent<UIVideoOptions>().ApplyVideoSettings();
-		audio.gameObject.GetComponent<UIAudioOptions>().ApplyAudioSettings();
+		audioMenu.gameObject.GetComponent<UIAudioOptions>().ApplyAudioSettings();
 		/*UIControlSet[] controlSets=(UIControlSet[])Object.FindObjectsOfType(typeof(UIControlSet));
 		foreach(UIControlSet c in controlSets)
 			c.Apply();
@@ -64,10 +64,10 @@ public class UIOptionsMenu : MonoBehaviour {
 
 	public void Reload(){
 		video.gameObject.SetActive(false);
-		audio.gameObject.SetActive(false);
+		audioMenu.gameObject.SetActive(false);
 		control.gameObject.SetActive(false);
 		video.gameObject.SetActive(true);
-		audio.gameObject.SetActive(true);
+		audioMenu.gameObject.SetActive(true);
 		control.gameObject.SetActive(true);
 	}
 

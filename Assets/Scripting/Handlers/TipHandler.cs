@@ -8,14 +8,14 @@ public class TipHandler : MonoBehaviour {
 
 	public float animTime;
 
-	Sprite tipSprite;
+	//Sprite tipSprite;
 	public string tipMessage="This is a tip.\nThis is a second tip";
 	bool tipOpen=false;
 	float tipAnimStart=-1;
 	float currentTipLife,currentTipStartTime;
 	int currentTipImportance=-1;
 
-	RectTransform rt;
+	//RectTransform rt;
 	public Image tipSpriteHolder;
 	public Text tipMessageHolder;
 	public Vector2 openScale=	new Vector2(200,150);
@@ -28,7 +28,7 @@ public class TipHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rt=(RectTransform)transform;
+		//rt=(RectTransform)transform;
 		transform.localScale=Vector3.zero;//=closedScale;
 		openScale=Vector2.one;
 		//tipSpriteHolder.enabled=false;
@@ -77,9 +77,9 @@ public class TipHandler : MonoBehaviour {
 			CloseTip(tipMessage);
 	}
 
-	public void OpenTip(Sprite ts,string tm,int importance=0,float tipLifeTime=0){
+	public void OpenTip(string tm,int importance=0,float tipLifeTime=0){
 		if (currentTipImportance>importance && tipOpen) return;
-		tipSprite=ts;
+		//tipSprite=ts;
 		//tipSpriteHolder.sprite=tipSprite;
 		//tipSpriteHolder.preserveAspect=true;
 		tipMessage=tm;

@@ -28,8 +28,8 @@ public class UIResolutionMenu : MonoBehaviour {
 		//opts.Add("1920x1080");
 		//#else
 		int i=0;
-		int currentResolutionIndex=0;
-		Debug.Log(Screen.currentResolution.ToString());
+		int currentResolutionIndex=Screen.resolutions.Length-1;
+		//Debug.Log(Screen.currentResolution.ToString());
 		foreach(Resolution r in Screen.resolutions){
 			opts.Add(r.ToString());
 			if (ResolutionsEqual(r,Screen.currentResolution)&&Screen.fullScreen)
@@ -42,10 +42,13 @@ public class UIResolutionMenu : MonoBehaviour {
 		resolutionDropdown.AddOptions(opts);
 		resolutionDropdown.value=currentResolutionIndex;
 		fullscreen=resolutionMenu.GetComponentInChildren<Toggle>();
+		fullscreen.isOn=Screen.fullScreen;
+		fullscreen.onValueChanged.AddListener(FullscreenToggled);
 
 		confirmText=cooldownMenu.GetComponentInChildren<Text>();
 		cooldownMenu.SetActive(false);
 		resolutionMenu.SetActive(true);
+		FullscreenToggled(Screen.fullScreen);
 	}
 
 	bool ResolutionsEqual(Resolution r1, Resolution r2){
@@ -63,6 +66,15 @@ public class UIResolutionMenu : MonoBehaviour {
 			ApplyPreviousSettings();
 	}
 
+	void FullscreenToggled(bool isOn){
+		if (isOn){
+			resolutionDropdown.value=resolutionDropdown.options.Count-1;
+			resolutionDropdown.interactable=false;
+		}else{
+			resolutionDropdown.interactable=true;
+		}
+	}
+
 	public void StopResolutionCooldown(){
 		setResolutionTime=-1;
 		//resolutionMenu.SetActive(true);
@@ -73,6 +85,7 @@ public class UIResolutionMenu : MonoBehaviour {
 	public void ApplyCurrentSettings(){
 		Debug.Log(resolutionDropdown.value);
 		Resolution r=Screen.resolutions[resolutionDropdown.value];
+		oldResolution=Screen.currentResolution;
 		Screen.SetResolution(r.width,r.height,fullscreen.isOn,r.refreshRate);
 		setResolutionTime=Time.time;
 		resolutionMenu.SetActive(false);

@@ -39,7 +39,8 @@ public class UIAudioOptions : MonoBehaviour {
 		float newMaster=1;
 		try{
 			newMaster=Mathf.Clamp01(float.Parse(text));
-		}catch(Exception e){
+		}catch{//(Exception e){
+			//e.printStackTrace();
 			return;
 		}
 		master=newMaster;
@@ -55,7 +56,7 @@ public class UIAudioOptions : MonoBehaviour {
 		float newAmbient=1;
 		try{
 			newAmbient=Mathf.Clamp01(float.Parse(text));
-		}catch(Exception e){
+		}catch{
 			return;
 		}
 		ambient=newAmbient;
@@ -71,7 +72,7 @@ public class UIAudioOptions : MonoBehaviour {
 		float newSFX=1;
 		try{
 			newSFX=Mathf.Clamp01(float.Parse(text));
-		}catch(Exception e){
+		}catch{
 			return;
 		}
 		sfx=newSFX;

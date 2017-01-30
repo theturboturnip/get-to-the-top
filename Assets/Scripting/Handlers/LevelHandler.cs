@@ -30,7 +30,6 @@ public class LevelHandler : MonoBehaviour {
 	public float checkpointActiveTime=3;
 
 	public bool deathTip=false;
-	public Sprite deathTipSprite;
 
 	public Vector3 currentCheckpointPosition;
 	Vector3 currentCheckpointLookDir;
@@ -38,7 +37,7 @@ public class LevelHandler : MonoBehaviour {
 	public static Shotgun shotgun;
 
 	public static LevelHandler currentLevel;
-	public static bool levelComplete=false,sendInEditor=true;
+	public static bool levelComplete=false,sendInEditor=false;
 	GTTTCompleteImageEffect fadeEffect;
 	bool respawning;
 	
@@ -68,7 +67,7 @@ public class LevelHandler : MonoBehaviour {
 			shotgun=GameObject.FindWithTag("Shotgun").GetComponent<Shotgun>();
 			GameObject.FindWithTag("Shotgun").SetActive(false);
 			player=GameObject.FindWithTag("Player").transform;
-		}catch (Exception e){
+		}catch{
 			Debug.Log("Error trying to find player");
 		}
 
@@ -195,7 +194,7 @@ public class LevelHandler : MonoBehaviour {
 		fadeEffect.StartFading();
 		respawning=false;
 		if (deathTip){
-			TipHandler.current.OpenTip(deathTipSprite,"When you fall off, you'll be respawned at the most recent checkpoint you passed.",100,3f);
+			TipHandler.current.OpenTip("When you fall off, you'll be respawned at the most recent checkpoint you passed.",100,3f);
 			deathTip=false;
 		}
 	}

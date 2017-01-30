@@ -9,15 +9,15 @@ public class LevelScrollHandler : MonoBehaviour {
 
 	public float buttonHeight=80;
 	public Material noStarMat,starMat;
-	float totalLevelCount,totalPixelHeight;
-	float startY;
+	float totalLevelCount;//,totalPixelHeight;
+	//float startY;
 
 	// Use this for initialization
 	void Start(){
 		OnEnable();
 	}
 	void OnEnable () {
-		startY=transform.localPosition.y;
+		//startY=transform.localPosition.y;
 
 		totalLevelCount=transform.childCount-1;//LevelData.GetLevelCount();
 		int unlockedLevelCount=0;
@@ -25,7 +25,7 @@ public class LevelScrollHandler : MonoBehaviour {
 		GameObject buttonObject;
 		Text buttonText;
 		LevelProgress lp;
-		Vector3[] corners=new Vector3[4];
+		//Vector3[] corners=new Vector3[4];
 		for (int i=0;i<totalLevelCount;i++){
 			buttonObject=transform.GetChild(i).gameObject;
 			//((RectTransform)buttonObject.transform).pivot=new Vector2(0.5f,1);
@@ -67,7 +67,7 @@ public class LevelScrollHandler : MonoBehaviour {
 				((RectTransform)buttonText.transform).anchoredPosition=Vector2.zero;
 			}
 		}
-		totalPixelHeight=buttonHeight*totalLevelCount/2-buttonHeight/2;
+		//totalPixelHeight=buttonHeight*totalLevelCount/2-buttonHeight/2;
 		
 		/*scrollbar=scrollbarObject.GetComponent<Scrollbar>();
 		//if totalPixelHeight<=lossyScale.y return 1

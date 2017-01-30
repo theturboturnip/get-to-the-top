@@ -23,7 +23,7 @@ public class UIShotgunInfo : MonoBehaviour {
 		//if shotgun exists, enable all children 
 		if (activated) return;
 		//s=(Shotgun)Object.FindObjectOfType(typeof(Shotgun));
-		if (!activated &&s.gameObject.active){
+		if (!activated &&s.gameObject.activeSelf){
 			activated=true;
 			foreach(Image i in images){
 				i.enabled=true;

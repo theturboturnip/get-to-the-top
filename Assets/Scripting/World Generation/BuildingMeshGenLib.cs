@@ -199,7 +199,7 @@ public static class BuildingMeshGenLib {
 	public static List<int[]> IdentifyShapeEdges (Mesh shape,int vStart=0,int vEnd=-1) {
 		//Identify edges
 		List<int[]> edges=new List<int[]>();
-		int[] basicEdge=new int[4]{-1,-1,-1,-1};
+		//int[] basicEdge=new int[4]{-1,-1,-1,-1};
 		int t,e;
 		if (vEnd<0)
 			vEnd=shape.vertexCount;

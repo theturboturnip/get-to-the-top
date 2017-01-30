@@ -126,13 +126,14 @@ public class FinalWorldGen : MonoBehaviour {
 
 	void Generate(){
 		int p=0;
-		float startDist,endDist;
+		float startDist,endDist=minPathStartDist;
 		startDist=minPathStartDist;//SuperMaths.RandomRange(threadRandom,minPathStartDist,maxPathStartDist);
 		bool samePathStart=false;
 		for (p=0;p<pathNumber;p++){
 			if (!samePathStart)
 				startDist=Mathf.Lerp(maxPathStartDist,minPathStartDist,p*1f/pathNumber);//SuperMaths.RandomRange(threadRandom,minPathStartDist,maxPathStartDist);
-			endDist=SuperMaths.RandomRange(threadRandom,minPathStartDist,maxPathStartDist);
+			if (p>0)
+				endDist=SuperMaths.RandomRange(threadRandom,minPathStartDist,maxPathStartDist);
 			FillPath(startDist,endDist,threadRandom);
 			buildProgress=(p+1)*1f/pathNumber;
 		}
@@ -153,7 +154,7 @@ public class FinalWorldGen : MonoBehaviour {
 		LevelHandler.currentLevel.WorldGenComplete();
 
 		buildProgress=1.1f;
-		GTTTNetwork.SendTime(-1,GTTTNetwork.EchoResponse);
+		//GTTTNetwork.SendTime(-1,GTTTNetwork.EchoResponse);
 	}
 
 	void FillPath(float startDist,float endDist,System.Random threadRandom){

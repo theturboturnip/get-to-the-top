@@ -35,7 +35,7 @@ public class UISlider : MonoBehaviour {
 	void InputChanged(string text){
 		try{
 			value=float.Parse(text);
-		}catch(Exception e){
+		}catch{
 			return;
 		}
 		s.value=(value-min)/(max-min);

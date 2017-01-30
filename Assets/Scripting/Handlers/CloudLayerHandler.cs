@@ -6,7 +6,7 @@ public class CloudLayerHandler : MonoBehaviour {
 	float minUVFlowSpeed,maxUVFlowSpeed;
 	public float minTexSize,maxTexSize;
 	float minTexScale,maxTexScale;
-	public float baseAlpha,cloudAlpha;
+	public float baseAlpha,cloudAlpha,layerDist;
 	public int layerAmount=5;
 	public Mesh quadMesh;
 	public int noiseRes;
@@ -28,7 +28,7 @@ public class CloudLayerHandler : MonoBehaviour {
 		transform.localScale=new Vector3(transform.localScale.x,1,transform.localScale.x);
 		cloudMaterials=new Material[layerAmount];
 		if (cloudSeed!=-1)
-			Random.seed=cloudSeed;
+			Random.InitState(cloudSeed);
 		/*int i=0;
 		foreach(Transform layer in transform){
 			cloudMaterials[i]=layer.gameObject.GetComponent<Renderer>().material;
@@ -43,7 +43,7 @@ public class CloudLayerHandler : MonoBehaviour {
 			layerObj.transform.parent=transform;
 			layerObj.transform.localEulerAngles=Vector3.right*90;
 			layerObj.transform.localScale=Vector3.one;
-			layerObj.transform.localPosition=Vector3.down*i;
+			layerObj.transform.localPosition=Vector3.down*i*layerDist;
 			layerObj.AddComponent<MeshFilter>().sharedMesh=quadMesh;
 			layerObj.AddComponent<MeshRenderer>().sharedMaterial=sharedMat;
 			cloudMaterials[i]=layerObj.GetComponent<MeshRenderer>().material;

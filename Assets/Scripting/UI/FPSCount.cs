@@ -14,11 +14,11 @@ public class FPSCount : MonoBehaviour {
 	public void Update(){
 		if (Time.timeScale==0) return;
 		//t.Start();
-		frameTime+=(Time.deltaTime-frameTime)*0.1f;
-		int fps=(int)(1f/frameTime);
+		frameTime+=(Time.smoothDeltaTime-frameTime)*0.1f;
+		int fps=(int)(1f/Time.smoothDeltaTime);
 		fpsText.text=fps+" FPS";
-		if(DynamicSkybox.currentSkybox!=null)
-			fpsText.text+="\nDSRT "+DynamicSkybox.currentSkybox.renderTime.ToString("F2")+"ms";
+		/*if(DynamicSkybox.currentSkybox!=null)
+			fpsText.text+="\nDSRT "+DynamicSkybox.currentSkybox.renderTime.ToString("F2")+"ms";*/
 	}
 	
 	// Update is called once per frame

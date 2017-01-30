@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 
 public class TipTrigger : PlayerTrigger {
-	public Sprite tipSprite;
 	public string tipMessage;
 	public bool oneShot=false;
 	public bool requireShotgun=false;
@@ -16,7 +15,7 @@ public class TipTrigger : PlayerTrigger {
 	public override void OnPlayerStay (Transform player) {
 		if (hasOpened) return;
 		if (requireShotgun&&GameObject.FindWithTag("Shotgun")==null) return;
-		TipHandler.current.OpenTip(tipSprite,tipMessage);
+		TipHandler.current.OpenTip(tipMessage);
 		hasOpened=true;
 	}
 	

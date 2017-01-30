@@ -22,7 +22,7 @@ public class LevelCheckpoint : MonoBehaviour {
 		if (LevelHandler.currentLevel==null) return;
 
 		Vector3 playerPos=transform.InverseTransformPoint(LevelHandler.player.position);
-		if (boxBounds.Contains(playerPos)&&(!requireShotgun||LevelHandler.shotgun.gameObject.active)){
+		if (boxBounds.Contains(playerPos)&&(!requireShotgun||LevelHandler.shotgun.gameObject.activeSelf)){
 			LevelHandler.currentLevel.ActivateCheckpoint(this);
 			this.enabled=false;
 		}

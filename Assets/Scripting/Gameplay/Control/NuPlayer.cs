@@ -33,7 +33,7 @@ public class NuPlayer : MonoBehaviour {
 	public KeyCode jumpKey=KeyCode.Space;
 	public float groundVelocity,groundAccel,movingFriction,jumpAmount,turnSpeed;
 	float moveSpeed=0;//For utility
-	Vector3 groundStartVelocity;
+	//Vector3 groundStartVelocity;
 	[Header("Air Data")]
 	public Vector3 airStartVelocity;
 	public float gravity,airMoveAmount,maxAirVelForPush;
@@ -93,7 +93,7 @@ public class NuPlayer : MonoBehaviour {
 	public Vector3 localInputDir,globalInputDir,momentum;
 	CustomCharacterController c;
 	Camera cam;
-	bool recalculateCollision=true;
+	//bool recalculateCollision=true;
 	float debugFloat,multistepTimePending=0;
 	Vector3 debugVector;
 
@@ -254,7 +254,7 @@ public class NuPlayer : MonoBehaviour {
 
 	void BeginGrounded(){
 		currentMode=PlayerMovementMode.Grounded;
-		groundStartVelocity=velocity;
+		//groundStartVelocity=velocity;
 		multistepTimePending=0;
 		if (LevelHandler.currentLevel.isProcGen){
 			Vector3 checkpointPos,checkpointDir;
@@ -469,7 +469,9 @@ public class NuPlayer : MonoBehaviour {
  				timeToRightDistance=vaultOverDistance/v;
 				timeToRightDistance=Mathf.Clamp(timeToRightDistance,minVaultTime,maxVaultTime);
 				float newVelMag=vaultOverDistance/timeToRightDistance;
-				velocity=SetY(transform.forward,0).normalized*newVelMag;
+				velocity=SetY(-vaultHit.normal,0).normalized*newVelMag;
+				if (velocity.magnitude/newVelMag<0.01)
+					velocity=SetY(transform.forward,0).normalized*newVelMag;
 
 				//conditions for vertical:
 				//find u such that
@@ -520,7 +522,7 @@ public class NuPlayer : MonoBehaviour {
 		if (Vector3.Dot(transform.forward,momentum)<0) return false;
 
 		bool foundWallrun=false;
-		int loops=0;
+		//int loops=0;
 		
 		//check each collision
 		//if we have a collision with a horizontal dir
@@ -546,7 +548,7 @@ public class NuPlayer : MonoBehaviour {
 			return true;
 		}
 		return foundWallrun;
-		targetWindVolume=maxWindVolume;
+		//targetWindVolume=maxWindVolume;
 	}
 
 	void BeginWallrun(){
@@ -559,8 +561,8 @@ public class NuPlayer : MonoBehaviour {
 		//clampLook=(wallrunHit.normal).normalized;
 		//minClampDot=Mathf.Cos(wallrunLookClampAngle/2*Mathf.Deg2Rad);
 
-		moveSpeed=Vector3.Dot(momentum,wallrunDir);
-		velocity=wallrunDir*Mathf.Max(wallrunStartImpulse.x,momentum.magnitude)+Vector3.up*Mathf.Max(Vector3.Dot(momentum,Vector3.up)*0.5f,wallrunStartImpulse.y);
+		moveSpeed=SetY(momentum).magnitude;//Vector3.Dot(momentum,wallrunDir);
+		velocity=wallrunDir*Mathf.Max(wallrunStartImpulse.x,moveSpeed)+Vector3.up*Mathf.Max(Vector3.Dot(momentum,Vector3.up)*0.5f,wallrunStartImpulse.y);
 		targetZRot=wallrunZRot*(Vector3.Dot(transform.right,wallrunHit.normal)>0?-1:1);
 
 		wallrunDistance=((wallrunCheckRayDist)/2+c.radius);

@@ -306,7 +306,7 @@ public class BlenderPlacement : Editor{
 		currentTransform.localScale=EditorGUILayout.Vector3Field("Local Scale",currentTransform.localScale);
 
 		EditorGUILayout.Space();
-		Vector3 p=EditorGUILayout.Vector3Field("Position",currentTransform.position);
-		Vector3 r=EditorGUILayout.Vector3Field("Rotation",currentTransform.eulerAngles);
+		EditorGUILayout.Vector3Field("Position",currentTransform.position);
+		EditorGUILayout.Vector3Field("Rotation",currentTransform.eulerAngles);
 	}
 }

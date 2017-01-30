@@ -84,8 +84,8 @@ public class DecalHandler : MonoBehaviour {
 		decal_t.localScale=new Vector3(scale.x*img_d.x,scale.y*img_d.y,scale.z);
 
 		decal_t.parent=transform;
-		if (parent!=null)
-			decal_t.parent=parent;
+		//if (parent!=null)
+		//	decal_t.parent=parent;
 		Material decal_m;
 		int texIndex=knownTextures.IndexOf(image);
 		if (texIndex>=0){

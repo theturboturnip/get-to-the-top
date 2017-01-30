@@ -18,7 +18,7 @@ public class UIVideoOptions : MonoBehaviour {
 
 	public float minFOV,maxFOV,minFPSLimit,maxFPSLimit,minShadowDistance,maxShadowDistance,minDrawDistance,maxDrawDistance;
 	public UISlider fovSlider,fpsSlider,shadowDistSlider,drawDistSlider;
-	//public Dropdown vSyncDropdown,msaaDropdown,shadowQualityDropdown;
+	public UIDropdown vSyncDropdown,msaaDropdown,shadowQualityDropdown;
 	public Toggle vSyncToggle;
 
 	// Use this for initialization
@@ -81,10 +81,10 @@ public class UIVideoOptions : MonoBehaviour {
 		//reflQualityDropdown.value=reflQuality;
 		//reflQualityDropdown.onValueChanged.AddListener(ReflectionDropdownChanged);
 		
-		//msaaDropdown.value=(int)Mathf.Log(msaa,2);
+		msaaDropdown.value=(int)Mathf.Log(msaa,2);
 		//msaaDropdown.onValueChanged.AddListener(MSAADropdownChanged);
 
-		//shadowQualityDropdown.value=(int)shadowResolution;
+		shadowQualityDropdown.value=(int)shadowResolution;
 		//shadowQualityDropdown.onValueChanged.AddListener(ShadowQualityDropdownChanged);
 	}
 
@@ -114,6 +114,8 @@ public class UIVideoOptions : MonoBehaviour {
 		fpsLimit=(int)fpsSlider.value;
 		shadowDist=shadowDistSlider.value;
 		drawDist=drawDistSlider.value;
+		msaa=(int)Mathf.Pow(2,msaaDropdown.value);
+		shadowResolution=(ShadowResolution)shadowQualityDropdown.value;
 		//Save the video settings
 		SettingsData.SetFOV(FOV);
 		SettingsData.SetFPSLimit(fpsLimit);

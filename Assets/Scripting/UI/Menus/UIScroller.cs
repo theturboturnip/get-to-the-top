@@ -12,8 +12,8 @@ public class UIScroller : MonoBehaviour {
 	void OnEnable () {
 		toScroll.anchoredPosition=Vector2.right*toScroll.anchoredPosition.x;
 		s=GetComponent<Scrollbar>();
-		s.onValueChanged.AddListener(delegate{UpdateRectPos(s.value);});
 		s.value=0;
+		s.onValueChanged.AddListener(delegate{UpdateRectPos(s.value);});
 	}
 	
 	// Update is called once per frame
