@@ -69,8 +69,7 @@ Shader "UI/Custom"
 
 			struct v2f
 			{
-				float4 vertex   : POSITION;
-				float4 vertexCopy : TEXCOORD2;
+				float4 vertex   : SV_POSITION;
 				fixed4 color    : COLOR;
 				half2 texcoord  : TEXCOORD0;
 				float4 worldPosition : TEXCOORD1;
@@ -92,9 +91,7 @@ Shader "UI/Custom"
 				#ifdef UNITY_HALF_TEXEL_OFFSET
 				OUT.vertex.xy += (_ScreenParams.zw-1.0) * float2(-1,1) * OUT.vertex.w;
 				#endif
-				OUT.vertexCopy=OUT.vertex;
-
-
+				
 				OUT.color = IN.color * _Color;
 				return OUT;
 			}
@@ -115,7 +112,7 @@ Shader "UI/Custom"
 					//Draw scanline 1 if we're on a scanline
 					//Draw scanline 2 otherwise
 				//Take y pos, divide by scanline height, take frac() and use as lerp
-				fixed scanConst=abs(frac(IN.vertexCopy.y*_ScreenParams.y/_ScanHeight));
+				fixed scanConst=abs(frac(IN.vertex.y/_ScanHeight));
 				scanConst=pow((scanConst-0.5)*2,4);
 				//if (scanConst>0.5)
 				//	scanConst=1;

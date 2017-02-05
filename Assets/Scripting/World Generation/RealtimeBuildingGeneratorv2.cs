@@ -26,6 +26,8 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 	[ReadOnly] public float maxCellDist;
 	public float cellSize,cellRadius;
 	public bool useCullingGroupAPI=false;
+	public Material nightSkybox;
+	public Shader fogShader;
 	float oldFarClip;
 	//public CullingDistanceBehaviour cullingDistBehaviour;
 
@@ -65,6 +67,31 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		despawnQueue=new List<int>();
 		spawnedBuildings=new List<int>();
 		if (constantMeshBuildingCount>2500) constantMeshBuildingCount=2500; //Otherwise we have too many vertices
+		//Apply modifiers
+		if (FinalWorldGen.nightMode){
+			RenderSettings.skybox=nightSkybox;
+			Light[] lights=(Light[]) FindObjectsOfType(typeof(Light));
+			foreach(Light light in lights){
+				if (light.type!=LightType.Directional){
+				//	light.range=100f;
+				//	light.intensity=10f;
+					continue;
+				}
+				light.color=new Color(225f/255f,240f/255f,1);
+			}
+			UnityStandardAssets.ImageEffects.GlobalFog fog=Camera.main.gameObject.AddComponent<UnityStandardAssets.ImageEffects.GlobalFog>();
+			fog.fogShader=fogShader;
+			//fog.heightFog=true;
+			//fog.height=LevelHandler.currentLevel.cloudLevel+10;
+			fog.startDistance=100;
+			RenderSettings.fogColor=new Color(12f/255f,18f/255f,0.5f);
+			RenderSettings.fogMode=FogMode.ExponentialSquared;
+			RenderSettings.fogDensity=0.01f;
+			RenderSettings.fogStartDistance=50f;
+			RenderSettings.fogEndDistance=60f;
+			//((CloudLayerHandler)Object.FindObjectOfType(typeof(CloudLayerHandler))).gameObject.SetActive(false);
+			//((CloudSkyHandler)Object.FindObjectOfType(typeof(CloudSkyHandler))).gameObject.SetActive(false);
+		}
 	}
 
 	void Init(){
@@ -115,6 +142,7 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		buildingMesh.triangles=new int[]{};
 		buildingMesh.uvs=new Vector2[constantMeshBuildingCount*22];*/                            
 
+		
 
 		//CreateBuildings();
 		inited=true;
@@ -270,6 +298,22 @@ public class RealtimeBuildingGeneratorv2 : MonoBehaviour {
 		buildingData[index].hasSpawned=true;
 		buildingData[index].shouldBeSpawned=true;
 		buildingData[index].t=bg.transform;
+		
+		Random.InitState(b.seed);
+		//Generate fence
+		float fenceVal=Random.value;
+		if (fenceVal<worldGen.fenceChance){
+			GameObject fence=GameObject.CreatePrimitive(PrimitiveType.Quad);
+			Destroy(fence.GetComponent<MeshCollider>());
+			fence.AddComponent<BoxCollider>().size=new Vector3(1,1,0.1f);
+			fence.transform.parent=bg.transform;
+			fence.transform.localScale=Vector3.right*Random.Range(b.depth*0.6f,b.depth)+Vector3.up*Random.Range(worldGen.minFenceHeight,worldGen.maxFenceHeight)+Vector3.forward; //Put -localScale.x/2 at -depth/2
+			fence.transform.localPosition=Vector3.up*(fence.transform.localScale.y/2+b.height)+Vector3.right*Random.Range(-b.width/2,b.width/2)*0.5f+Vector3.forward*(fence.transform.localScale.x/2-b.depth/2)*Mathf.Sign(Random.value-0.5f);
+			fence.transform.localRotation=Quaternion.Euler(Vector3.up*90f);
+			fence.GetComponent<MeshRenderer>().sharedMaterial=worldGen.fenceMat;
+			fence.AddComponent<FenceGenerator>();
+		}
+		
 		activeBuildings++;
 		activeVertexCount+=22;
 	}

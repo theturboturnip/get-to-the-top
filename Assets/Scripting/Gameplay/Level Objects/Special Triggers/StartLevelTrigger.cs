@@ -16,7 +16,7 @@ public class StartLevelTrigger : TubeTrigger {
 	public override void OnPlayerLeave(Transform player){
 		if (hasStarted) return;
 		GetComponent<CapsuleCollider>().enabled=true;
-		BoxCollider[] bcArray=GetComponents<BoxCollider>();
+		BoxCollider[] bcArray=GetComponentsInChildren<BoxCollider>();
 		foreach(BoxCollider bc in bcArray){
 			bc.enabled=false;
 		}

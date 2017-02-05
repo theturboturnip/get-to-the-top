@@ -13,6 +13,7 @@ public class UIVersionControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start(){
+		updateButton.SetActive(false);
 		t=GetComponentInChildren<Text>();
 		t.text="Current Version: "+currentVersion;
 		//Get valid
@@ -38,6 +39,7 @@ public class UIVersionControl : MonoBehaviour {
 		if (response[0]=='y') isValid=1;
 		else{
 			isValid=-1;
+			Debug.Log("Auth Failed");
 			internalText="SERVER AUTH FAILED";
 			versionBehind=true;
 		}

@@ -27,7 +27,7 @@ public class CustomCharacterController : MonoBehaviour {
 	public float radius;
 	public float height,skinWidth;
 	[Header("Character Data")]
-	public Vector3 velocity;
+	public Vector3 deltaMove;
 	public Vector3 collisionDirection;
 	public List<Vector3> collisionDirections;
 	public List<Collider> collisionColliders,toIgnore;
@@ -127,13 +127,13 @@ public class CustomCharacterController : MonoBehaviour {
 			moveDelta=moveDelta.normalized*Mathf.Max(0,moveDelta.magnitude-radius);
 		}
 		collision=collision||ResolveCollision();
-		velocity=transform.position-originalPos;
+		deltaMove=transform.position-originalPos;
 		//now=new FrameCollisionData(collision,transform.position,velocity/Time.deltaTime,origMoveDelta/Time.deltaTime);
 		
-		Vector3 changeInVelocity=(velocity-origMoveDelta);
+		/*Vector3 changeInVelocity=(velocity-origMoveDelta);
 		changeInVelocity.y=0;
-		velocity/=Time.deltaTime;
-		endTickPos=transform.position+Vector3.one;
+		velocity/=Time.deltaTime;*/
+		//endTickPos=transform.position+Vector3.one;
 
 		//fourAgo=threeAgo;
 		//threeAgo=twoAgo;

@@ -32,6 +32,11 @@ public class FinalWorldGen : MonoBehaviour {
 	public float maxBuildingDim;
 	float maxBuildingRadius;
 	public int maxChainedWallrunsAtEnd,maxChainedGapsAtEnd;
+
+	[Space(10)]
+	public float fenceChance;
+	public float minFenceHeight,maxFenceHeight;
+	public Material fenceMat;
 	
 	[Space(10)]
 	public List<Building> buildings;
@@ -40,6 +45,9 @@ public class FinalWorldGen : MonoBehaviour {
 	List<int>[] rings;
 	public int aabbPreventedCollisions=0,collisions;
 	public GameObject[] enableOnFinish;
+
+	//Challenge Toggles
+	public static bool nightMode,autoFire;
 
 	public static float buildProgress=0f;
 	public Thread generationThread;
@@ -164,6 +172,7 @@ public class FinalWorldGen : MonoBehaviour {
 		float w1=RandomDimension(),l1=RandomDimension(),h1=Mathf.Lerp(pathStartHeight,pathEndHeight,p);
 		float dist,dist1=startDist;
 		float isectDist;
+		int seed=0;
 		int buildingType=0;
 		int[] previousTypes=new int[]{-1,-1,-1};
 
@@ -173,7 +182,7 @@ public class FinalWorldGen : MonoBehaviour {
 			l=l1;
 			h=h1;
 			dist=dist1;
-			AddBuilding(w,l,h,theta,dist);
+			AddBuilding(w,l,h,seed,theta,dist);
 
 			//Find all building data not based on theta
 			w1=RandomDimension();
@@ -197,9 +206,11 @@ public class FinalWorldGen : MonoBehaviour {
 				dist1+=w1*deviation;
 			}
 			h1=Mathf.Lerp(pathStartHeight,pathEndHeight,p)+insideHeightDelta*(1-(dist1-minPathStartDist)/(maxPathStartDist-minPathStartDist));
-			if (theta<340) h1+=SuperMaths.RandomRange(threadRandom,-maxHeightDeviation,maxHeightDeviation)*(theta/360f);
+			if (theta<340) h1+=SuperMaths.RandomRange(threadRandom,-maxHeightDeviation,maxHeightDeviation)*Mathf.Max(0.5f,(theta/360f));
 			if (buildingType==1)
 				h1+=50; //SHOULD BE RANDOM VAL
+			Vector3 worldPos=WorldGenLib.PolarToWorld(theta,dist1);
+			seed=Mathf.RoundToInt(worldPos.x*worldPos.z*h1); //Completely independent of random number gen, meaning that we don't have to worry about 
 			buildProgress+=(dtheta)/(pathEndAngle-pathStartAngle)*1f/pathNumber;
 		
 			previousTypes[2]=previousTypes[1];
@@ -237,7 +248,7 @@ public class FinalWorldGen : MonoBehaviour {
 		return 0;
 	}
 
-	void AddBuilding(float w,float l,float h,float theta,float dist){
+	void AddBuilding(float w,float l,float h,int seed,float theta,float dist){
 		Building b= new Building();
 		b.yRot=theta;
 		b.distance=dist;
@@ -246,6 +257,7 @@ public class FinalWorldGen : MonoBehaviour {
 		b.width=w;
 		b.depth=l;
 		b.radius=Mathf.Max(l/2,w/2)*Mathf.Sqrt(2);
+		b.seed=seed;
 		b.inited=true;
 
 		int currentRing=(int)Mathf.Clamp(Mathf.FloorToInt(b.distance*ringCount/worldRadius),0,rings.Length-1);

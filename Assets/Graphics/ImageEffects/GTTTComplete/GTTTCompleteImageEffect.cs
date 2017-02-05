@@ -16,7 +16,14 @@ public class GTTTCompleteImageEffect : MonoBehaviour {
 	public bool permaFade=false;
 	float fadeStart=-1;
 
+	[Header("Back Tex")]
+	public Texture backColor;
+	public Texture backDepth;
+	public float secondaryNear,secondaryFar;
+	public bool shouldMix=true;
+
 	Material m_Material;
+	Camera myCamera;
 
 	void Start(){
 			// Disable if we don't support image effects
@@ -32,6 +39,9 @@ public class GTTTCompleteImageEffect : MonoBehaviour {
 
 		if (startOnStart)
 			StartFading();
+
+		myCamera=GetComponent<Camera>();
+		myCamera.depthTextureMode=DepthTextureMode.Depth;
 	}
 
 	protected Material material{
@@ -59,8 +69,17 @@ public class GTTTCompleteImageEffect : MonoBehaviour {
 	}
 
 	void OnRenderImage(RenderTexture src,RenderTexture dest){
-		Graphics.Blit(src,dest);
-		if (fadeStart==-1) return;
+		//RenderTexture intermediate=RenderTexture.GetTemporary(Screen.width,Screen.height);
+		/*material.SetPass(1);
+		material.SetTexture("_BackTex",backColor);
+		material.SetTexture("_BackDepth",backDepth);
+		Vector4 depthParams=new Vector4(myCamera.nearClipPlane,myCamera.farClipPlane,secondaryNear,secondaryFar);
+		material.SetVector("_DepthParams",depthParams);
+		Graphics.Blit(src,intermediate,material);*/
+		//Graphics.Blit(src,intermediate);
+		//Graphics.Blit(src,dest);
+		bool fade=true;
+		if (fadeStart==-1) fade=false;
 		/*if (fadeProgress==1 && invertWhenFinished&&!stopWhenFinished){
 				invertFade=invertFade;
 				fadeStart=Time.time;
@@ -73,13 +92,20 @@ public class GTTTCompleteImageEffect : MonoBehaviour {
 		
 		if (fadeProgress>1){
 			//fadeProgress=1;
-			if (stopWhenFinished) return;
+			if (stopWhenFinished) fade=false;
 			
 		}
 
+		material.SetInt("_ShouldMix",shouldMix?1:0);
+		material.SetTexture("_BackTex",backColor);
+		material.SetTexture("_BackDepth",backDepth);
+		Vector4 depthParams=new Vector4(myCamera.nearClipPlane,myCamera.farClipPlane,secondaryNear,secondaryFar);
+		material.SetVector("_DepthParams",depthParams);
 		material.SetInt("_FadeInvert",invertFade?-1:1);
 		material.SetInt("_FadeDirection",fadeDirection);
 		material.SetFloat("_FadeProgress",fadeProgress);
+		material.SetInt("_ApplyFade",fade?1:0);
+		//material.SetPass(0);
 		Graphics.Blit(src,dest,material);
 	}
 }

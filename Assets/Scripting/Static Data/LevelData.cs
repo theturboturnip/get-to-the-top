@@ -24,7 +24,7 @@ public static class LevelData{
 	public static void Initialize(){
 		levels=new Level[4];
 		levels[0]=new Level(1,"Get Going",30f,60f,120f);
-		levels[1]=new Level(2,"Hardcore Parkour",60f,120f,180f);
+		levels[1]=new Level(2,"Hardcore Parkour",50f,120f,180f);
 		levels[2]=new Level(3,"For Every Action...",25f,60f,120f);
 		levels[3]=new Level(4,"Get To The Top",60*10f,60*20f,60*30f);
 		//levels[2]=new Level(3,"")

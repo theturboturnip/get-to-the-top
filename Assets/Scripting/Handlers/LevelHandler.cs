@@ -30,6 +30,7 @@ public class LevelHandler : MonoBehaviour {
 	public float checkpointActiveTime=3;
 
 	public bool deathTip=false;
+	public bool validScore=true;
 
 	public Vector3 currentCheckpointPosition;
 	Vector3 currentCheckpointLookDir;
@@ -43,6 +44,7 @@ public class LevelHandler : MonoBehaviour {
 	
 	public float loadLevelFadeTime=1;
 	float loadLevelFadeStart=-1;
+	float previousAngle;
 
 	AsyncOperation levelLoader;
 
@@ -97,6 +99,7 @@ public class LevelHandler : MonoBehaviour {
 			fadeEffect.permaFade=true;
 			fadeEffect.fadeProgress=0;
 			player.gameObject.GetComponent<NuPlayer>().enabled=false;
+			validScore=false;
 		}
 		levelComplete=false;
 	}
@@ -130,6 +133,13 @@ public class LevelHandler : MonoBehaviour {
 			float loadLevelProgress=Mathf.Clamp01((Time.time-loadLevelFadeStart)/loadLevelFadeTime);
 			if (loadLevelProgress==1)
 				levelLoader.allowSceneActivation=true;
+		}
+		if (isProcGen){
+			Vector2 polarPos=WorldGenLib.WorldToPolar(player.position);
+			if (polarPos.y>=180 && polarPos.y<270 && previousAngle<180 && polarPos.x>FinalWorldGen.current.minPathStartDist*0.5f)
+				validScore=true;
+			previousAngle=polarPos.y;
+
 		}
 	}
 	
@@ -263,7 +273,7 @@ public class LevelHandler : MonoBehaviour {
 		player.gameObject.GetComponent<NuPlayer>().BeginLevelEnd();
 
 		//Send the time taken to the server
-		if (Application.isEditor||sendInEditor){
+		if (validScore&&(!Application.isEditor||sendInEditor)){
 			GTTTNetwork.SendTime(levelCompleteTime,GTTTNetwork.EchoResponse);
 		}
 

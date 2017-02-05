@@ -54,7 +54,7 @@ public class LevelScrollHandler : MonoBehaviour {
 					}
 				}else{
 					buttonObject.transform.Find("Stars").gameObject.SetActive(false);
-					((RectTransform)buttonText.transform).anchoredPosition=new Vector2(40,0);
+					((RectTransform)buttonText.transform).anchoredPosition=new Vector2(0,0);
 				}
 				buttonObject.GetComponent<LevelSelectButton>().levelIndexToLoad=i;
 				

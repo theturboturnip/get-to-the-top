@@ -25,7 +25,8 @@ public class SettingsApplier : MonoBehaviour {
 		QualitySettings.vSyncCount=SettingsData.GetVSyncState();
 
 		AudioListener.volume=SettingsData.GetMasterAudio();
-		Camera.main.fieldOfView=SettingsData.GetFOV();
+		foreach(Camera c in Camera.allCameras)
+			c.fieldOfView=SettingsData.GetFOV();
 		Camera.main.farClipPlane=SettingsData.GetDrawDistance();
 		InputHandler.LoadKeybinds();
 	}

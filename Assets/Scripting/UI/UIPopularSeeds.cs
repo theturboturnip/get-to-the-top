@@ -27,12 +27,23 @@ public class UIPopularSeeds : MonoBehaviour {
 	// Update is called once per frame
 	void UpdateSeeds (string response) {
 		string[] responses=response.Split(new string[]{"\n"}, StringSplitOptions.RemoveEmptyEntries);
-		namesToSet=new string[responses.Length];
-		timesToSet=new string[responses.Length];
-		string[] strArr;
+		List<string> censoredResponses= new List<string>();
 		for(int i=0;i<responses.Length;i++){
+			if (responses[i]!=CensorString(responses[i])){
+				//We know that the string has bad words
+
+			}else{
+				censoredResponses.Add(responses[i]);
+			}
+		}
+
+		namesToSet=new string[censoredResponses.Count];
+		timesToSet=new string[censoredResponses.Count];
+		string[] strArr;
+		for (int i=0;i<censoredResponses.Count;i++){
+			Debug.Log(censoredResponses[i]);
 			//Debug.Log(responses[i]);
-			strArr=responses[i].Split();
+			strArr=censoredResponses[i].Split();
 			//Debug.Log(strArr[0]+","+strArr[1]);
 			namesToSet[i]="";
 			for (int j=0;j<strArr.Length-1;j++)

@@ -14,6 +14,7 @@
 		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
 		LOD 200
 		ZWrite Off
+		//ZTest Always
     	Blend SrcAlpha OneMinusSrcAlpha
     	Cull Off
 
@@ -118,7 +119,9 @@
 
 				// apply fog
 				//UNITY_APPLY_FOG(i.fogCoord, col);
-				return lerp(_BaseColor,_CloudColor,a);
+				fixed4 c=lerp(_BaseColor,_CloudColor,a);
+				clip(c.a-0.1);
+				return c;
 			}
 			ENDCG
 		}

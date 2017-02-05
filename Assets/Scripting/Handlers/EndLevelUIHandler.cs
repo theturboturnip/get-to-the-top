@@ -18,7 +18,7 @@ public class EndLevelUIHandler : MonoBehaviour {
 	public float timeDecreaseDelay; //Start time decrease in x seconds
 	float timeDecreaseStart;
 	bool correctTime=false;
-	public Text timeText,extraTime;
+	public Text timeText,extraTime,invalidText;
 
 	public EndUIStar star1,star2,star3;
 	public int currentActiveStars=0;
@@ -32,6 +32,7 @@ public class EndLevelUIHandler : MonoBehaviour {
 	public void OpenUI(){
 		uiOpenStart=Time.time+uiOpenDelay;
 		timeDecreaseStart=Time.time+timeDecreaseDelay+uiOpenTime+uiOpenDelay;
+		invalidText.gameObject.SetActive(!LevelHandler.currentLevel.validScore);
 	}
 
 	public void CloseUI(){

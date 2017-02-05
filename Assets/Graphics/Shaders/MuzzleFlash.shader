@@ -8,10 +8,11 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "Queue"="Transparent"}
+		Tags { "RenderType"="Opaque" "Queue"="Geometry"}
 		LOD 100
 		Cull Front
-		ZWrite Off
+		ZWrite On
+		Offset 0,-1
 
 		Pass
 		{
@@ -20,7 +21,6 @@
 			#pragma vertex vert
 			#pragma fragment frag
 			// make fog work
-			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
 
@@ -33,7 +33,6 @@
 			struct v2f
 			{
 				float4 color : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 			};
 
@@ -46,7 +45,6 @@
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 				//o.vertex.z=1;
 				o.color=lerp(_StartColor,_EndColor,length(v.vertex)/_ScaleDist);
-				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
 			
@@ -55,10 +53,10 @@
 				// sample the texture
 				fixed4 col = i.color;
 				// apply fog
-				//UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
 			}
 			ENDCG
 		}
 	}
+	Fallback "Diffuse"
 }

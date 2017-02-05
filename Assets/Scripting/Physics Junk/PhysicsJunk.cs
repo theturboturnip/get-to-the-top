@@ -58,48 +58,43 @@ public class PhysicsJunk : MonoBehaviour {
 			}*/
 			if(active){ 
 				Vector3 oldPos=transform.position;
-				transform.position+=velocity*Time.deltaTime;
 				transform.Rotate(torque*Time.timeScale);
-				betterCollision.enabled=true;
-				Collider[] overlap=Physics.OverlapCapsule(transform.TransformPoint(betterCollision.center+Vector3.up*(betterCollision.height-betterCollision.radius)),transform.TransformPoint(betterCollision.center-Vector3.up*(betterCollision.height-betterCollision.radius)),betterCollision.radius);
-				foreach(Collider c in overlap){
-					if (c==betterCollision) continue;
-					Vector3 moveDir;
-					float moveDist;
-					if (Physics.ComputePenetration(betterCollision,transform.position,transform.rotation,
-												   c,c.transform.position,c.transform.rotation,out moveDir,out moveDist)){
-						//Bounce off the object by reflecting velocity in the normal and dampening
-						RaycastHit h;
-						if (!Physics.Raycast(transform.position,Physics.ClosestPoint(transform.position,c,c.transform.position,c.transform.rotation)-transform.position,out h)) break;
+				//Vector3 moveDelta=velocity.normalized*Time.deltaTime*Mathf.Min(velocity.magnitude,betterCollision.height);
+				float deltaTime=1/240f;
+				float totalTime=Time.deltaTime;
+				while (totalTime>0){
 
-						transform.position+=moveDir*moveDist;
+					if (deltaTime>totalTime){
+						deltaTime=totalTime;
+						totalTime=0;
+					}else{
+						totalTime-=deltaTime;	
+					}
+					transform.position+=velocity*deltaTime;
+					betterCollision.enabled=true;
+					Collider[] overlap=Physics.OverlapCapsule(transform.TransformPoint(betterCollision.center+Vector3.up*(betterCollision.height-betterCollision.radius)),transform.TransformPoint(betterCollision.center-Vector3.up*(betterCollision.height-betterCollision.radius)),betterCollision.radius);
+					foreach(Collider c in overlap){
+						if (c==betterCollision) continue;
+						Vector3 moveDir;
+						float moveDist;
+						if (Physics.ComputePenetration(betterCollision,transform.position,transform.rotation,
+													   c,c.transform.position,c.transform.rotation,out moveDir,out moveDist)){
+							//Bounce off the object by reflecting velocity in the normal and dampening
+							RaycastHit h;
+							if (!Physics.Raycast(transform.position,Physics.ClosestPoint(transform.position,c,c.transform.position,c.transform.rotation)-transform.position,out h)) break;
+
+							transform.position+=moveDir*moveDist;
 						/**/
-						if(Vector3.Dot(h.normal,Vector3.up)>0.9f&&velocity.magnitude<0.5f){
+							if(Vector3.Dot(h.normal,Vector3.up)>0.9f&&velocity.magnitude<0.5f){
 							//transform.position=h.point+Vector3.up*yOffsetOnFloor;
-					
-							float oldGlobalY=transform.eulerAngles.y;
-							Vector3 newRotation=Vector3.zero;
-							/*if(transform.eulerAngles.z>180&&transform.eulerAngles.z<=270) newRotation.z=-90;
-							else if (transform.eulerAngles.z>270) newRotation.z=0;
-							else newRotation.z=90;*/
-							float eulerZ=transform.eulerAngles.z;
-							if (eulerZ<45||eulerZ>=315) eulerZ=0;
-							else if (eulerZ>=45 && eulerZ<135) eulerZ=90;
-							else if (eulerZ>=135 && eulerZ<225) eulerZ=180;
-							else eulerZ=270;
-							newRotation.z=eulerZ;
-							newRotation.y=oldGlobalY;
-							transform.localEulerAngles=newRotation;
-							active=false;
-							Debug.Log("Deactivating");
-							if(audioEnabled)
-								audioSource.PlayOneShot(finishBouncingClip);
-						}else{
+								Die();
+							}else{
 							//velocity=(transform.position-oldPos)/Time.deltaTime;
-							velocity=Vector3.Reflect(velocity,h.normal)*0.5f;
-							torque/=2;
-							if(audioEnabled)
-								audioSource.PlayOneShot(bounceClips[Random.Range(0,bounceClips.Length)]);
+								velocity=Vector3.Reflect(velocity,h.normal)*0.5f;
+								torque/=2;
+								if(audioEnabled)
+									audioSource.PlayOneShot(bounceClips[Random.Range(0,bounceClips.Length)]);
+							}
 						}
 					}
 				}
@@ -112,6 +107,26 @@ public class PhysicsJunk : MonoBehaviour {
 				audioSource.volume=Mathf.Clamp01(velocity.magnitude/5f)*volume*distanceMod;
 			}
 		}
+	}
+
+	void Die(){
+		float oldGlobalY=transform.eulerAngles.y;
+		Vector3 newRotation=Vector3.zero;
+							/*if(transform.eulerAngles.z>180&&transform.eulerAngles.z<=270) newRotation.z=-90;
+							else if (transform.eulerAngles.z>270) newRotation.z=0;
+							else newRotation.z=90;*/
+		float eulerZ=transform.eulerAngles.z;
+		if (eulerZ<45||eulerZ>=315) eulerZ=0;
+		else if (eulerZ>=45 && eulerZ<135) eulerZ=90;
+		else if (eulerZ>=135 && eulerZ<225) eulerZ=180;
+		else eulerZ=270;
+		newRotation.z=eulerZ;
+		newRotation.y=oldGlobalY;
+		transform.localEulerAngles=newRotation;
+		active=false;
+		Debug.Log("Deactivating");
+		if(audioEnabled)
+			audioSource.PlayOneShot(finishBouncingClip);
 	}
 
 	void OnDrawGizmos(){

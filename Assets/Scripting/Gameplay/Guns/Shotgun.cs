@@ -71,6 +71,7 @@ public class Shotgun : Gun,IKController {
 	public Vector3 originalLocalPos,lookTarget;
 	Quaternion updateStartRot,currentLookRot;
 	bool started=false;
+	public bool shouldFire=false;
 
 	// Use this for initialization
 	public override void Start () {
@@ -173,6 +174,7 @@ public class Shotgun : Gun,IKController {
 			reloadTimeTaken=(bulletsLeft<=0)?(-waitToReload):0;
 			animShell.gameObject.SetActive(true);
 			reloadStart=Time.time;
+			shouldFire=false;
 		}
 		if (animState=="Reloading"){
 			reloadTimeTaken=Mathf.Min(reloadTimeTaken+Time.deltaTime,reloadTimePerShell);
@@ -229,15 +231,17 @@ public class Shotgun : Gun,IKController {
 				
 			}else if(cockTimeTaken>=0)cocker.localPosition=startCockPos-(cockTimeTaken*2/cockTime)*handleCockOffset;
 
-			if(cockTimeTaken>=cockTime)
+			if(cockTimeTaken>=cockTime){
 				animState="None";
+			}
 		}
 	}
 
 	
 	void HandleFiring(){
 		if (Cursor.lockState==CursorLockMode.None) return;
-		if ((InputHandler.GetButton("Fire"))&&bulletsLeft>0&&animState=="None"){
+		shouldFire=shouldFire||(InputHandler.GetButton("Fire")&&animState=="None");
+		if (shouldFire&&bulletsLeft>0&&animState=="None"){
 			float lookBackMod=((InputHandler.GetButton("Lookback"))&&(animState!="Reloading")&&canLookBack?-1:1);
 			currentLookRot=Quaternion.LookRotation( playerCamera.transform.forward*lookBackMod,playerCamera.transform.up);
 			transform.rotation=currentLookRot;
@@ -250,6 +254,7 @@ public class Shotgun : Gun,IKController {
 			cockTimeTaken=-waitToCock;
 			currentRecoilPosAmount=recoilPosAmount;
 			targetRecoilRot=recoilRotAmount;
+			shouldFire=FinalWorldGen.autoFire;
 		}
 	}
 

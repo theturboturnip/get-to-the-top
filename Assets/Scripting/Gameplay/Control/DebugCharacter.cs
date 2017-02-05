@@ -16,6 +16,6 @@ public class DebugCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		c.Move(velocity*Time.deltaTime);
-		velocity=c.velocity;
+		velocity=c.deltaMove/Time.deltaTime;
 	}
 }

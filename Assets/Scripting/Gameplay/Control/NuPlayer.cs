@@ -82,7 +82,7 @@ public class NuPlayer : MonoBehaviour {
 	public AudioSource feetSource;
 	public AudioClip[] walkingFeetClips;
 	public AudioClip jumpClip,landClip;
-	public float moveDistanceForFootEffect,wallrunDistanceMultiplier;
+	public float moveDistanceForFootEffect,wallrunDistanceMultiplier,wallrunMaxMoveSpeedForFeet,wallrunFastDistanceMultiplier;
 	public float groundedVolume,wallrunVolume,footPan,footVolumeVar,headBobAmount,headBobTime;
 	float groundedMoveDistance,startGroundedTime=-1;
 
@@ -115,6 +115,7 @@ public class NuPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Time.timeScale==0||Time.deltaTime==0) return;
 		if (currentMode!=PlayerMovementMode.EndingLevel)
 			HandleMouseLook();
 		
@@ -136,6 +137,7 @@ public class NuPlayer : MonoBehaviour {
 	}
 
 	void LateUpdate(){
+		if (Time.timeScale==0 || Time.deltaTime==0) return;
 		if (currentMode==PlayerMovementMode.StartingLevel||currentMode==PlayerMovementMode.EndingLevel){
 			if (currentMode==PlayerMovementMode.EndingLevel){
 				transform.position=Vector3.Lerp(transform.position,tubeFloor.position+Vector3.up*(tubeFloor.localScale.y/2+1),Time.deltaTime*levelEndPositionCorrection);
@@ -147,11 +149,12 @@ public class NuPlayer : MonoBehaviour {
 			//
 
 		}else{
-			//MultistepMovement();
-			c.Move(velocity*Time.deltaTime);
+			
+			//c.Move(velocity*Time.deltaTime);
 			//cachedCollisionDir=Vector3.one*2;
 			//recalculateCollision=true;
-			momentum=c.velocity;//ApplyCollision(velocity);
+			//momentum=
+			MultistepMovement();//ApplyCollision(velocity);
 			velocity=momentum+Vector3.zero;
 			windSource.panStereo=Mathf.Sin(Time.time)*windPanAmount;
 			targetWindVolume=Mathf.Clamp01((velocity.magnitude-windMinSpeed)/(windMaxSpeed-windMinSpeed))*maxWindVolume;
@@ -174,7 +177,7 @@ public class NuPlayer : MonoBehaviour {
 			//	groundedMoveDistance+=velocity.y*Time.deltaTime*wallrunDistanceMultiplier;
 			//else 
 			//	groundedMoveDistance+=Mathf.Min(velocity.y*-0.5f,1)*Time.deltaTime*wallrunDistanceMultiplier;
-			groundedMoveDistance+=SetY(velocity).magnitude*Time.deltaTime*wallrunDistanceMultiplier;
+			groundedMoveDistance+=SetY(velocity).magnitude*Time.deltaTime*wallrunDistanceMultiplier*(SetY(velocity).magnitude>wallrunMaxMoveSpeedForFeet?wallrunFastDistanceMultiplier:1);
 			if (groundedMoveDistance>=moveDistanceForFootEffect){
 				groundedMoveDistance-=moveDistanceForFootEffect;
 				//if (!(feetSource.isPlaying&&feetSource.clip==landClip))
@@ -189,11 +192,15 @@ public class NuPlayer : MonoBehaviour {
 	}
 
 	void MultistepMovement(){
+		if (Time.timeScale==0) return;
+		momentum=Vector3.zero;
 		DoPhysMultistep(MovementMultistepProxy);
+		momentum/=Time.deltaTime;
 	}
 
 	void MovementMultistepProxy(float deltaTime){
 		c.Move(velocity*deltaTime);
+		momentum+=c.deltaMove;
 	}
 
 	void UpdateMovementMode(){
@@ -402,21 +409,28 @@ public class NuPlayer : MonoBehaviour {
 
 		Vector3 vaultObjSize=vaultHit.collider.bounds.size;
 		if (vaultHit.collider is BoxCollider){
+			//Debug.Log("Vaulting over box");
 			vaultObjSize=Vector3.Scale(vaultHit.transform.lossyScale,((BoxCollider)vaultHit.collider).size);
 		}
 		vaultTargetHeight=vaultHit.collider.bounds.center.y+vaultObjSize.y/2+c.height/2;
 
+
 		vaultOverDistance=vaultObjSize.z;
 		
-
-		if(Mathf.Abs(vaultHit.normal.x)>Mathf.Abs(vaultHit.normal.z)){
+		//Vector3 rotatedNormal=vaultHit.transform.rotation*vaultHit.normal;
+		//if dot(posdelta,object right) > dot(posdelta,object forward))
+		Vector3 delta=transform.position-vaultHit.transform.position;
+		if (Mathf.Abs(Vector3.Dot(delta,vaultHit.transform.right))/vaultObjSize.x>Mathf.Abs(Vector3.Dot(delta,vaultHit.transform.forward)/vaultObjSize.z)){
+		//if(Mathf.Abs(rotatedNormal.x)>Mathf.Abs(rotatedNormal.z)){
 			vaultOverDistance=vaultObjSize.x;
 		}
+		//Debug.Log(vaultOverDistance+","+rotatedNormal);
 		if(maxVaultDist<vaultOverDistance){
 			//We are climbing
 			vaultOverDistance=2*c.radius;
 		}else{
 			//We are vaulting over
+			//Debug.Log("Vaulting");
 			vaultOverDistance+=2*c.radius;
 			vaultTargetHeight=vaultHit.transform.position.y+vaultObjSize.y/2+c.height/4;
 			Vector3 relativeView=cam.transform.forward-Vector3.Dot(cam.transform.forward,vaultHit.normal)*vaultHit.normal;
@@ -531,7 +545,8 @@ public class NuPlayer : MonoBehaviour {
 		int i=0;
 		Collider wallCollider;
 		foreach(Vector3 collisionDir in c.collisionDirections){
-			if (Mathf.Abs(collisionDir.y)>0.01) continue;
+			//Debug.Log(collisionDir);
+			if (Mathf.Abs(collisionDir.y)>0.5) continue;
 
 			//We want dot (normal,forward) to be as close to zero as possible
 			float parallelAngle=90-Mathf.Acos(Mathf.Abs(Vector3.Dot(transform.forward,c.collisionHits[i].normal)))*Mathf.Rad2Deg;

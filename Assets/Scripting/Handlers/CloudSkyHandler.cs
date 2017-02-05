@@ -108,7 +108,7 @@ public class CloudSkyHandler : MonoBehaviour {
 	}
 
 	void CamPreCull(Camera cam){
-		if (cam!=Camera.main) return;
+		if (cam==Camera.main||cam==null) return;
 		foreach(Cloud c in clouds){
 			if (circularPlacement)
 				c.t.LookAt(cam.transform);
