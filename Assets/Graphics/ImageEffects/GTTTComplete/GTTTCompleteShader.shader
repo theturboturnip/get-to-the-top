@@ -68,13 +68,13 @@ Shader "Hidden/GTTTCompleteShader"
 				//fadeData is the height of the fade line
 				o.fadeData=_FadeProgress; 
 
-				if (_FadeDirection==-1)
+				if (_FadeDirection==1)
 					o.fadeData=1-o.fadeData;
 
-				#if UNITY_UV_STARTS_AT_TOP
+				/*#if UNITY_UV_STARTS_AT_TOP
 				if (_FadeDirection!=0)
 					o.fadeData=1-o.fadeData;
-				#endif
+				#endif*/
 				
 				//if _FadeDirection==-1 then do 1-fadeData i.e. 
 
@@ -96,7 +96,7 @@ Shader "Hidden/GTTTCompleteShader"
 					fragFade=i.fadeData;
 				else 
 					//1 if uv.y-fadeData>0 & _FadeInvert=1
-					fragFade=sign(i.uv.y-i.fadeData)*_FadeInvert;
+					fragFade=sign(i.uv_depth.y-i.fadeData)*_FadeInvert;
 				fragFade=saturate(fragFade);
 				return lerp(col,_FadeColor,fragFade);			
 			}
@@ -109,17 +109,21 @@ Shader "Hidden/GTTTCompleteShader"
 				zBuffX=-(-_DepthParams.w/_DepthParams.z);
 				zBuffY=1-_DepthParams.z/_DepthParams.w;//-_DepthParams.y/_DepthParams.x;
 				//return (_ZBufferParams.y-zBuffY);
+				#if defined(UNITY_REVERSED_Z)
 				return 1.0 / ( zBuffX * rawBackDpth + zBuffY); //This works 
+				#else
+				return -1.0 / ( zBuffX * rawBackDpth + zBuffY); //This works 
+				#endif
 			} 
 
 			fixed4 TexBlend(v2f i){
 				//Get Depths
 				float rawMainDpth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture,i.uv_depth);
 				float main01Dpth = Linear01Depth(rawMainDpth);
-				float mainDpth = lerp(_DepthParams.x,_DepthParams.y,main01Dpth);
+				/*float mainDpth = lerp(_DepthParams.x,_DepthParams.y,main01Dpth);
 				float rawBackDpth = SAMPLE_DEPTH_TEXTURE(_BackDepth,i.uv_depth);
 				float back01Dpth = LinearBackDepth(rawBackDpth);//Linear01Depth(rawBackDpth); //THIUS IS WRONG
-				float backDpth = lerp(_DepthParams.z,_DepthParams.w,back01Dpth);
+				float backDpth = lerp(_DepthParams.z,_DepthParams.w,back01Dpth);*/
 
 				//return _ZBufferParams;
 				//return back01Dpth;//(rawBackDpth*10+10)/20;
@@ -128,7 +132,7 @@ Shader "Hidden/GTTTCompleteShader"
 				fixed4 main=tex2D(_MainTex,i.uv),back=tex2D(_BackTex,i.uv);
 				//return back01Dpth;
 				//return main01Dpth;
-				if (_ShouldMix==1&&(backDpth<mainDpth || main01Dpth==1)){
+				if (_ShouldMix==1&&(main01Dpth==1)){
 					//if (length(main)<0.5)
 					//	return 2*main*back;
 					return back+main*(1-back);

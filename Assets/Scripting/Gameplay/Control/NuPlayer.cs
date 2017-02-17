@@ -96,6 +96,7 @@ public class NuPlayer : MonoBehaviour {
 	//bool recalculateCollision=true;
 	float debugFloat,multistepTimePending=0;
 	Vector3 debugVector;
+	public bool drawDebug;
 
 	delegate void MultistepFunction(float deltaTime);
 
@@ -680,7 +681,8 @@ public class NuPlayer : MonoBehaviour {
 
 	#if UNITY_EDITOR
 	void OnGUI(){
-		GUILayout.Button("Float: "+debugFloat+" Vector: "+debugVector);
+		if (drawDebug)
+			GUILayout.Button("Float: "+debugFloat+" Vector: "+debugVector);
 	}
 	#endif
 

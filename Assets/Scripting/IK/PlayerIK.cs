@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public struct IKRig{
 	public string id;
 	public Transform[] boneChain;
@@ -134,8 +135,11 @@ public class PlayerIK : MonoBehaviour {
 			rig.hintCache[i]=rig.jointHints[i].position;
 		}
 		Vector3[] hints=validHints?rig.hintCache:null;
+		rig.up=rig.attachPoint.up;
+		rig.forward=rig.attachPoint.forward;
 		//if (!validHints)
 		//	Debug.Log(rig.id+" hints invalud!");
+		//Debug.Log(rig.attachPoint);
 		InverseKinematics.ApplyInvKinematicsRotation(rig.boneChain,rig.attachPoint.position,upDirection : rig.up,hints:hints);
 	}
 

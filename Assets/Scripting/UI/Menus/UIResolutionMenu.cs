@@ -60,7 +60,7 @@ public class UIResolutionMenu : MonoBehaviour {
 
 	void Update(){
 		if (setResolutionTime<0) return;
-		int secondsLeft=newResWaitTime-Mathf.RoundToInt(Time.time-setResolutionTime);
+		int secondsLeft=newResWaitTime-Mathf.RoundToInt(Time.unscaledTime-setResolutionTime);
 		confirmText.text="Confirm new resolution? switching back in "+secondsLeft+"...";
 		if (secondsLeft<0)
 			ApplyPreviousSettings();
@@ -87,7 +87,7 @@ public class UIResolutionMenu : MonoBehaviour {
 		Resolution r=Screen.resolutions[resolutionDropdown.value];
 		oldResolution=Screen.currentResolution;
 		Screen.SetResolution(r.width,r.height,fullscreen.isOn,r.refreshRate);
-		setResolutionTime=Time.time;
+		setResolutionTime=Time.unscaledTime;
 		resolutionMenu.SetActive(false);
 		cooldownMenu.SetActive(true);
 	}

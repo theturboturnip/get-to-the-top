@@ -41,7 +41,7 @@ public class UIPopularSeeds : MonoBehaviour {
 		timesToSet=new string[censoredResponses.Count];
 		string[] strArr;
 		for (int i=0;i<censoredResponses.Count;i++){
-			Debug.Log(censoredResponses[i]);
+			//Debug.Log(censoredResponses[i]);
 			//Debug.Log(responses[i]);
 			strArr=censoredResponses[i].Split();
 			//Debug.Log(strArr[0]+","+strArr[1]);
@@ -49,6 +49,7 @@ public class UIPopularSeeds : MonoBehaviour {
 			for (int j=0;j<strArr.Length-1;j++)
 				namesToSet[i]+=strArr[j]+" ";
 			namesToSet[i]=namesToSet[i].Trim();
+
 			timesToSet[i]=strArr[strArr.Length-1];
 		}
 	}
@@ -58,6 +59,9 @@ public class UIPopularSeeds : MonoBehaviour {
 			//Text[] textComps;
 			for (int i=0;i<buttons.Length && i<timesToSet.Length;i++){
 				//textComps=buttons[i].GetComponentsInChildren<Text>();
+				if (namesToSet[i]==null)
+					Debug.Log("nullname "+i);
+
 				buttons[i].transform.GetChild(0).gameObject.GetComponent<Text>().text=CensorString(namesToSet[i]); //PROFANITY PARSING PLZ
 				buttons[i].transform.GetChild(1).gameObject.GetComponent<Text>().text="Times played: "+timesToSet[i];
 				buttons[i].GetComponent<UIApplySeedButton>().seedToApply=namesToSet[i];
@@ -70,7 +74,7 @@ public class UIPopularSeeds : MonoBehaviour {
 	string CensorString(string str){
 		string replaceWith;
 		foreach(string censorWord in splitSwears){
-			replaceWith=censorWord[0]+new string ('*',censorWord.Length-2);
+			replaceWith=censorWord[0]+new string ('*',censorWord.Length-1);
 			//Debug.Log(str+","+censorWord+","+replaceWith);
 			str=str.Replace(censorWord.Trim(),replaceWith);
 			//Debug.Log(str);

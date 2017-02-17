@@ -83,6 +83,7 @@ public class Shotgun : Gun,IKController {
 		animShell.gameObject.SetActive(false);
 		originalLocalPos=transform.localPosition;
 		currentLook=playerCamera.transform.position+playerCamera.transform.forward*middleDistance;
+		//playerIK=transform.parent.parent.gameObject.GetComponent<PlayerIK>();
 		started=true;
 		//StartDeploy();
 	}
@@ -91,6 +92,8 @@ public class Shotgun : Gun,IKController {
 		Start();
 		animState="None";
 		StartDeploy();
+		//InitIK();
+
 	}
 
 	void OnDisable(){
@@ -101,21 +104,31 @@ public class Shotgun : Gun,IKController {
 	void Update () {
 		HandleAnimation();
 		HandleFiring();
-		
 	}
 	
 	void LateUpdate(){
-		HandleIK();
+		//HandleIK();
 		if (animState!="Deploy")
 			transform.rotation=updateStartRot;
 	}
 
-	void HandleIK(){
-		//playerIK.SetLHandIK(this,leftHandHold.position);
-		//playerIK.SetIKDirections(this,"LeftArm",up:-transform.up);
-		//playerIK.SetRArmUp(this,rightHandHold.up);
-		//playerIK.SetRHandIK(this,rightHandHold.position);
+	void InitIK(){
+		Debug.Log("Initing IK");
+		playerIK.RequestControl(this,"LeftArm");
+		playerIK.SetIKHandle(this,"LeftArm",leftHandHold);
+		playerIK.SetIKJointHint(this,"LeftArm",leftElbowHint);
+
+		playerIK.RequestControl(this,"RightArm");
+		playerIK.SetIKHandle(this,"RightArm",rightHandHold);
+		playerIK.SetIKJointHint(this,"RightArm",rightElbowHint);
 	}
+
+	/*void HandleIK(){
+		playerIK.SetLHandIK(this,leftHandHold.position);
+		playerIK.SetIKDirections(this,"LeftArm",up:-transform.up);
+		playerIK.SetRArmUp(this,rightHandHold.up);
+		playerIK.SetRHandIK(this,rightHandHold.position);
+	}*/
 
 	public bool AllowControl(IKController ikc,IKRig ikr){
 		return true;

@@ -69,13 +69,20 @@ public class DecalHandler : MonoBehaviour {
 				break;
 			}
 		}
+		foreach(GameObject decal in decals){
+			if (Vector3.Distance(decal.transform.position,Camera.main.transform.position)>maxCameraDistance && maxCameraDistance>0){
+				decals.Remove(decal);
+				Destroy(decal);
+				break;
+			}
+		}
 	}
 	
 	public void CreateDecal(Vector3 point,Vector3 normal,Texture2D image,Vector3 scale,Transform parent=null,bool randomRotation=true){
 		//Create 2D plane at point, rotated to face normal, and with correct scaling
 		GameObject decal_g=new GameObject("Decal "+transform.childCount);
 		Transform decal_t=decal_g.transform;
-		decal_t.position=point+normal*0.02f;
+		decal_t.position=point+normal*Random.Range(0.001f,0.05f);
 		decal_t.rotation=Quaternion.LookRotation(normal);
 		//Correct scaling for image aspect ratio
 		int biggestDimension=Mathf.Max(image.width,image.height);
@@ -103,6 +110,8 @@ public class DecalHandler : MonoBehaviour {
 		decal_g.AddComponent<MeshRenderer>().sharedMaterial=decal_m;
 		decals.Add(decal_g);
 		decalCount++;
+		if (maxLiveTime>0)
+			Destroy(decal_g,maxLiveTime);
 	}
 
 	public void CreateDecal(Vector3 point,Vector3 normal, Texture2D image){

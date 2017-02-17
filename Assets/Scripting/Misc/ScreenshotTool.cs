@@ -20,8 +20,9 @@ public class ScreenshotTool : MonoBehaviour {
 	void TakeScreenshot(){
 		//Debug.Log("Screenshot");
 		string path=Application.dataPath+"/"+System.DateTime.Now.ToString("hhmmss ddmmyyyy")+".png";
-		Debug.Log("Saved screenshot at "+path);
 		Application.CaptureScreenshot(path);
+		Debug.Log("Saved screenshot at "+path);
+
 	}
 }
 #endif

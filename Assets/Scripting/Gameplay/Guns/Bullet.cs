@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour {
 		if (hit){
 			if (rh.transform.gameObject.tag=="IgnoreBullet") return;
 			if(DecalHandler.currentHandler!=null && decalTex!=null)
-				DecalHandler.currentHandler.CreateDecal(rh.point+rh.normal*Random.Range(0f,0.01f),rh.normal,decalTex,decalTexScale,rh.transform,true);
+				DecalHandler.currentHandler.CreateDecal(rh.point,rh.normal,decalTex,decalTexScale,rh.transform,true);
 			TrailRenderer tr=GetComponent<TrailRenderer>();
 			if (tr==null)
 				Destroy(gameObject);

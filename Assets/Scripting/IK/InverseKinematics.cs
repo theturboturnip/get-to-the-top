@@ -100,6 +100,11 @@ public class InverseKinematics {
 			hints=oldPositions;
 		else
 			hints[0]-=bones[0].position;
+		Debug.Log("IK Prep Dump");
+		Debug.Log("End Dir: "+endTargetVector);
+		foreach(Vector3 hint in hints){
+			Debug.Log(hint);
+		}
 		Vector3[] newDirections=NBoneInvKinematics(boneRadii,endTargetVector,hints,true,true);
 		
 		//int upCompensationMode=0;

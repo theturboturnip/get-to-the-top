@@ -4,7 +4,7 @@
 		_BaseLightLevel("Base Light Level", Range(0,1)) = 0.5
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" "Queue"="Geometry+1" "ForceNoShadowCasting"="True" }
+		Tags { "RenderType"="Opaque" "Queue"="AlphaTest" "ForceNoShadowCasting"="False" }
     	LOD 200
 		Offset -1, -1
 		Cull Off
@@ -13,7 +13,7 @@
 		#define NO_SURF_FUNC
 		#include "CelShaderLib.cginc"
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf CelShader noambient //decal:blend //alpha
+		#pragma surface surf CelShader noambient addshadow//decal:blend //alpha
 
 		sampler2D _MainTex;
 		//half _BaseLightLevel;

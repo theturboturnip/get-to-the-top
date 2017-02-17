@@ -14,12 +14,13 @@ public class SkyboxCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void TargetPreRender(Camera rendering){
+		
 		if (rendering!=targetC) return;
 		if (tempColor!=null){
 			RenderTexture.ReleaseTemporary(tempColor);
 			RenderTexture.ReleaseTemporary(tempDepth);
 		}
-		tempColor=RenderTexture.GetTemporary(Screen.width,Screen.height,0,RenderTextureFormat.Default,RenderTextureReadWrite.Default,QualitySettings.antiAliasing);
+		tempColor=RenderTexture.GetTemporary(Screen.width,Screen.height,0,RenderTextureFormat.Default,RenderTextureReadWrite.Default);
 		tempDepth=RenderTexture.GetTemporary(Screen.width,Screen.height,24,RenderTextureFormat.Depth);
 
 		c.targetTexture=tempColor;

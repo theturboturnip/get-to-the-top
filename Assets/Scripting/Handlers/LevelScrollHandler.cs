@@ -60,7 +60,6 @@ public class LevelScrollHandler : MonoBehaviour {
 				
 			}else{
 				buttonObject.GetComponent<Button>().interactable=false;
-				buttonObject.GetComponentsInChildren<Image>()[1].enabled=false;
 				buttonObject.transform.Find("Stars").gameObject.SetActive(false);
 				buttonText.text="???";
 				buttonText.fontSize=30;

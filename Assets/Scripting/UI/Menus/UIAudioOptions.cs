@@ -17,7 +17,7 @@ public class UIAudioOptions : MonoBehaviour {
 		masterSlider.onValueChanged.AddListener(MasterSliderChanged);
 		masterInput.onValueChanged.AddListener(MasterInputChanged);
 
-		ambient=SettingsData.GetAmbientAudio();
+		/*ambient=SettingsData.GetAmbientAudio();
 		ambientSlider.value=ambient;
 		ambientInput.text=ambient.ToString("N2");
 		ambientSlider.onValueChanged.AddListener(AmbientSliderChanged);
@@ -27,7 +27,7 @@ public class UIAudioOptions : MonoBehaviour {
 		sfxSlider.value=sfx;		
 		sfxInput.text=sfx.ToString("N2");
 		sfxSlider.onValueChanged.AddListener(SFXSliderChanged);
-		sfxInput.onValueChanged.AddListener(SFXInputChanged);
+		sfxInput.onValueChanged.AddListener(SFXInputChanged);*/
 	}
 
 	void MasterSliderChanged(float value){

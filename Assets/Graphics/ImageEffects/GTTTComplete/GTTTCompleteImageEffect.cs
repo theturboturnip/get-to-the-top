@@ -96,7 +96,7 @@ public class GTTTCompleteImageEffect : MonoBehaviour {
 			
 		}
 
-		material.SetInt("_ShouldMix",shouldMix?1:0);
+		material.SetInt("_ShouldMix",(shouldMix&&backColor!=null)?1:0);
 		material.SetTexture("_BackTex",backColor);
 		material.SetTexture("_BackDepth",backDepth);
 		Vector4 depthParams=new Vector4(myCamera.nearClipPlane,myCamera.farClipPlane,secondaryNear,secondaryFar);
