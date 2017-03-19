@@ -18,7 +18,6 @@ public class UIKeyChangeMenu : MonoBehaviour {
 		t=GetComponentInChildren<Text>();
 		currentGO=this.gameObject;
 		currentGO.SetActive(false);
-		Debug.Log(t);
 	}
 
 	public void Activate(KeyDownCallback requestedCallback){

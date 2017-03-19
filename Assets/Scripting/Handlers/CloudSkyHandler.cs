@@ -15,7 +15,7 @@ public class CloudSkyHandler : MonoBehaviour {
 	public Material material;
 	public Vector3 cloudScale,windVel;
 	public Vector2 texScale;
-	public bool moveWithCamera=true,circularPlacement=true;
+	public bool moveWithCamera=true,circularPlacement=true,localRotation=false;
 	Texture2D tex;
 
 	int texResX,texResY;
@@ -61,6 +61,8 @@ public class CloudSkyHandler : MonoBehaviour {
 		g.transform.localPosition=clumpPos+Vector3.right*Random.Range(-clumpRadius,clumpRadius)+Vector3.up*Random.Range(-clumpRadius,clumpRadius);
 		if(circularPlacement)
 			g.transform.localPosition+=Vector3.forward*Random.Range(-clumpRadius,clumpRadius);//Vector3.right*Random.Range(cloudHorizMin,cloudHorizMax)*-Mathf.Sign(Random.Range(-1,1))+Vector3.forward*Random.Range(cloudHorizMin,cloudHorizMax)*-Mathf.Sign(Random.Range(-1,1))+Vector3.up*cloudHeight;
+		if (localRotation)
+			g.transform.localRotation=Quaternion.identity;
 		g.layer=gameObject.layer;
 
 		clouds[index]=c;
@@ -101,7 +103,7 @@ public class CloudSkyHandler : MonoBehaviour {
 		foreach(Cloud c in clouds){
 			c.t.localPosition+=windVel*Time.deltaTime;
 			if (Mathf.Abs(c.t.localPosition.x)>cloudHorizMax)
-				c.t.localPosition-=2*c.t.localPosition.x*Vector3.right;
+				c.t.localPosition=c.t.localPosition+Vector3.right*(-c.t.localPosition.x+cloudHorizMin);
 			//if (Mathf.Abs(c.t.localPosition.y)>cloudHeightMax)
 			//	c.t.localPosition-=2*c.t.localPosition.y*Vector3.up;
 		}

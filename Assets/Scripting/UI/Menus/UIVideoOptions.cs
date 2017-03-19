@@ -81,10 +81,13 @@ public class UIVideoOptions : MonoBehaviour {
 		//reflQualityDropdown.value=reflQuality;
 		//reflQualityDropdown.onValueChanged.AddListener(ReflectionDropdownChanged);
 		
-		msaaDropdown.value=(int)Mathf.Log(msaa,2);
+		if (msaa>0)
+			msaaDropdown.value=(int)Mathf.Log(msaa,2);
+		else msaaDropdown.value=0;
 		//msaaDropdown.onValueChanged.AddListener(MSAADropdownChanged);
 
 		shadowQualityDropdown.value=(int)shadowResolution;
+
 		//shadowQualityDropdown.onValueChanged.AddListener(ShadowQualityDropdownChanged);
 	}
 

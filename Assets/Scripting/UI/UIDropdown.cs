@@ -8,6 +8,7 @@ public class UIDropdown : MonoBehaviour {
 	public int value;
 	public Sprite verticalTop,verticalMiddle,verticalBottom,normal;
 	public GameObject buttonPrefab;
+	public Font font;
 	Text mainText;
 	RectTransform optionButtonParent;
 	bool open=false;
@@ -33,6 +34,7 @@ public class UIDropdown : MonoBehaviour {
 		optionCanvas.sortingOrder=3000;
 		optionButtonParent.gameObject.AddComponent<GraphicRaycaster>();
 		GameObject button;
+		Text buttonText;
 		for (int i=0;i<options.Length;i++){
 			//Instantiate a buttonPrefab
 			button=(GameObject)Instantiate(buttonPrefab,optionButtonParent);
@@ -43,7 +45,9 @@ public class UIDropdown : MonoBehaviour {
 				button.GetComponent<Image>().sprite=verticalMiddle;
 			else
 				button.GetComponent<Image>().sprite=verticalBottom;
-			button.GetComponentInChildren<Text>().text=options[i];
+			buttonText=button.GetComponentInChildren<Text>();
+			buttonText.text=options[i];
+			buttonText.font=font;
 			//button.GetComponent<Button>().onClick.AddListener(delegate{SelectOption(i);});
 			int tempI=i;
 			button.GetComponent<Button>().onClick.AddListener(() => SelectOption(tempI));

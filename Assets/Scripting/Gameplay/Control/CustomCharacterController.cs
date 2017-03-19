@@ -108,7 +108,7 @@ public class CustomCharacterController : MonoBehaviour {
 	public virtual void Move(Vector3 moveDelta){
 		if (Time.deltaTime<=0) return;		
 		Vector3 originalPos=transform.position;
-		Vector3 origMoveDelta=moveDelta;
+		//Vector3 origMoveDelta=moveDelta;
 		collisionDirections=new List<Vector3>();
 		collisionColliders=new List<Collider>();
 		collisionHits=new List<RaycastHit>();

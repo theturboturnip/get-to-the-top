@@ -94,9 +94,9 @@ public class NuPlayer : MonoBehaviour {
 	CustomCharacterController c;
 	Camera cam;
 	//bool recalculateCollision=true;
-	float debugFloat,multistepTimePending=0;
-	Vector3 debugVector;
-	public bool drawDebug;
+	float multistepTimePending=0;
+	//Vector3 debugVector;
+	//public bool drawDebug;
 
 	delegate void MultistepFunction(float deltaTime);
 
@@ -657,7 +657,7 @@ public class NuPlayer : MonoBehaviour {
 		//u+v=2s/t
 		velocity=160/startLevelTime*Vector3.up;
 		startDeceleration=-velocity.y/startLevelTime;
-		debugVector=velocity;
+		//debugVector=velocity;
 		multistepTimePending=0;
 	}
 
@@ -671,20 +671,20 @@ public class NuPlayer : MonoBehaviour {
 		//Mathf.Min(-160/startLevelTime,0.5f*startDeceleration*t*t)
 		transform.position+=Vector3.up*(startLevelStartHeight+160/startLevelTime*t+0.5f*startDeceleration*t*t-transform.position.y);
 		//debugFloat=startDeceleration;
-		debugVector= transform.position;
-		debugFloat=transform.position.y-startLevelTargetHeight;
+		//debugVector= transform.position;
+		//debugFloat=transform.position.y-startLevelTargetHeight;
 		if (velocity.y<0||transform.position.y-startLevelTargetHeight>=-0.01f){
 			velocity=Vector3.zero;
 			BeginGrounded();
 		}
 	}
 
-	#if UNITY_EDITOR
+	/*#if UNITY_EDITOR
 	void OnGUI(){
 		if (drawDebug)
 			GUILayout.Button("Float: "+debugFloat+" Vector: "+debugVector);
 	}
-	#endif
+	#endif*/
 
 	public void BeginLevelEnd(){
 		currentMode=PlayerMovementMode.EndingLevel;

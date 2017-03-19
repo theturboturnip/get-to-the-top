@@ -8,7 +8,7 @@
 		_BaseLightLevel ("Base Light Level",Range(0,1)) = 0.5
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" "Queue"="Geometry+50"}
+		Tags { "RenderType"="Opaque" "Queue"="AlphaTest+50"}
 		LOD 200
 		
 		Pass{

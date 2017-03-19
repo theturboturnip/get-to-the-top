@@ -35,7 +35,7 @@ public class LevelCheckpoint : MonoBehaviour {
 		Gizmos.DrawWireCube(boxBounds.center,boxBounds.size);
 		Gizmos.matrix=Matrix4x4.TRS(transform.position,transform.rotation,Vector3.one);
 		Gizmos.color=Color.blue;
-		Gizmos.DrawLine(Vector3.zero,spawnLookDir*2);
-		Gizmos.DrawSphere(spawnLookDir*2,0.1f);
+		Gizmos.DrawLine(boxBounds.center,boxBounds.center+spawnLookDir*2);
+		Gizmos.DrawSphere(boxBounds.center+spawnLookDir*2,0.1f);
 	}
 }

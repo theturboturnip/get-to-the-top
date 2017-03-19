@@ -24,6 +24,7 @@ public class MuzzleFlash : MonoBehaviour {
 		for(int i=0;i<m.vertexCount;i++){
 			startVerts[i]=m.vertices[i]+Vector3.zero; //Ensure the pointer is different
 		}
+		Debug.Log(m.vertexCount);
 
 		//Setup inside mesh
 		m.subMeshCount++;
