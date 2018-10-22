@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex ("Noise Texture", 2D) = "white" {}
+		[HideInInspector]_MainTex ("Noise Texture", 2D) = "white" {}
 		_MainTexSize("Noise Texture Resolution", Vector) = (128,128,0,0)
 		_BaseColor ("Base Color", Color)=(1,1,1,0)
 		_CloudColor("Second Color", Color)=(1,1,1,1)
@@ -14,7 +14,7 @@
 		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
 		LOD 200
 		ZWrite Off
-		//ZTest Always
+		//Ztest Always
     	Blend SrcAlpha OneMinusSrcAlpha
     	Cull Off
 
@@ -33,11 +33,10 @@
 				float4 vertex : POSITION;
 				float2 uv : TEXCOORD0;
 			};
-
 			struct v2f
 			{
 				float4 uv : TEXCOORD0;
-				//UNITY_FOG_COORDS(1)
+				//UNITY_FOG_COORDS(1)1
 				float4 vertex : SV_POSITION;
 				//float2 texelOffset : TEXCOORD1;
 			};
